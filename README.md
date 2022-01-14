@@ -15,9 +15,13 @@ Admin/Manager portal(For manager/Admin to manage the entire property)
 
 Group Members:
 
-Harsha Prakash Pakki                  harshapakki
-Hetansh Narendrabhai Patel            Hetanshpatel
-Sai Teja Nagam                        Stnagam
-Sheela Rani Ippili                    sheelaippili
+Harsha Prakash Pakki     
+(harshapakki)
+Hetansh Narendrabhai Patel           
+(Hetanshpatel)
+Sai Teja Nagam                        
+(Stnagam)
+Sheela Rani Ippili                    
+(sheelaippili)
 
 Tech Stack: React, GoLang, PostgreSQL
