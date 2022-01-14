@@ -21,7 +21,7 @@ Hetansh Narendrabhai Patel
 (Hetanshpatel)
 Sai Teja Nagam                        
 (Stnagam)
-Sheela Rani Ippili                    
+Sheela Rani Ippili   
 (sheelaippili)
 
 Tech Stack: React, GoLang, PostgreSQL
