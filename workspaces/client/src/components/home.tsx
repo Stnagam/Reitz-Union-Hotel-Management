@@ -8,6 +8,8 @@ import Button from "@mui/material/Button";
 //import {hp_table} from "./hp_table"
 import img from "./ReitzUnion.jpg";
 import { Box } from "@mui/system";
+import Header from "../default/header";
+import Footer from "../default/footer"
 
 const data = [
   {
@@ -38,6 +40,7 @@ const data = [
 const Home = () => {
   return (
     <React.Fragment>
+      <Header></Header>
       <div>
         <img src={img} width={"100%"} height={"400px"} />
         <p>
@@ -96,6 +99,7 @@ const Home = () => {
           </table>
         </Box>
       </div>
+      <Footer></Footer>
     </React.Fragment>
   );
 };

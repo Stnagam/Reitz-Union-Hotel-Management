@@ -7,6 +7,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import { Link } from 'react-router-dom';
 // import MenuIcon from "@mui/icons-material/Menu";
 // import {Login} from "./Login";
 // import { BrowserRouter, Route, Switch, Redirect, Link, useNavigate, useHistory, NavLink } from "react-router-dom";
@@ -38,8 +39,12 @@ export default function Header() {
             Reitz Union Hotel
           </Typography>
 
-           
-          <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
+          <Link
+            to= "/login"
+            >
+            <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
+          </Link>
+          
           
           <Button  style={{backgroundColor: "orange", color: "black"}} color="inherit" >SignUp</Button>
         </Toolbar>

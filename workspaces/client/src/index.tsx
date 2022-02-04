@@ -4,18 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './home';
-import Header from './header';
-import Footer from './footer';
-import Login from './login';
+import Home from './components/home';
+import Header from './default/header';
+import Footer from './default/footer';
+import Login from './components/login';
 
 ReactDOM.render(
   <BrowserRouter>
   <Routes>
     <Route path="/" element={<App />} />
-    <Route path="/Header" element={<Header />} />
+    {/* <Route path="/defualt/Header" element={<Header />} /> */}
     <Route path="/Home" element={<Home />} />
-    <Route path="/footer" element={<Footer />} />
+    {/* <Route path="/default/footer" element={<Footer />} /> */}
     <Route path="/Login" element={<Login />} />
   </Routes>
 </BrowserRouter>,
