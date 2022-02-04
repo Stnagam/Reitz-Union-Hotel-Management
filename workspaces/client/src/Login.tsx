@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "./Login.css";
+//import "./Login.css";
 
-export default function Login() {
+export function Login() {
+  console.log("Login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,7 +12,7 @@ export default function Login() {
   //   return email.length > 0 && password.length > 0;
   // }
 
-  function handleSubmit(event) {
+  function handleSubmit(event:any) {
     event.preventDefault();
   }
 
@@ -32,27 +33,27 @@ export default function Login() {
   return (
     <div className="Login">
       <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email">
+        <Form.Group controlId="email">
           <Form.Label>Email:</Form.Label>
           <Form.Control
             autoFocus
             type="email"
             value={email}
             placeholder="Enter Email" 
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e : any) => setEmail(e.target.value)}
           />
         </Form.Group>
-        <Form.Group size="lg" controlId="password">
+        <Form.Group  controlId="password">
           <Form.Label>Password:</Form.Label>
           <Form.Control
             type="password"
             value={password}
             placeholder="Enter Password" 
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e : any) => setPassword(e.target.value)}
           />
         </Form.Group>
         <a href="">Forgot Password?</a>
-        <Button onClick={login} block size="lg" type="submit" >
+        <Button onClick={login} size="lg" type="submit" >
           Login
         </Button>
         
@@ -60,3 +61,4 @@ export default function Login() {
     </div>
   );
 }
+export default Login
