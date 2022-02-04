@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "server/helpers"
 
 func main() {
-	fmt.Printf("hello world")
+	helpers.MailHelper()
 }
