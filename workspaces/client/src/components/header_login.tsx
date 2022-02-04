@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 // import { BrowserRouter, Route, Switch, Redirect, Link, useNavigate, useHistory, NavLink } from "react-router-dom";
 
 
-export default function Header() {
+export default function HeaderLogin() {
 
   return (
       <AppBar position="static">
@@ -33,20 +33,24 @@ export default function Header() {
           </IconButton>
           {/* The Typography component applies 
            default font weights and sizes */}
-  
+        <Link
+            to="/home" style={
+             {textDecoration: "inherit", color:"inherit", textAlign: "center"}
+            }
+            >
           <Typography variant="h3" 
             component="div" sx={{ flexGrow: 1 }} style={{textAlign: "center"}}>
             Reitz Union Hotel
           </Typography>
-
-          <Link
+          </Link>
+          {/* <Link
             to= "/login"
             >
             <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
-          </Link>
+          </Link> */}
           
           
-          <Button  style={{backgroundColor: "orange", color: "black"}} color="inherit" >SignUp</Button>
+          <Button  style={{backgroundColor: "orange", color: "black", alignItems:"right"}} color="inherit" >SignUp</Button>
         </Toolbar>
       </AppBar>
   );

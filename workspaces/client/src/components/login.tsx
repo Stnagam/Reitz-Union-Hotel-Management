@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 //import "./Login.css";
-import Header from "../default/header";
+import HeaderLogin from "../components/header_login";
 import Footer from "../default/footer"
 
 export function Login() {
@@ -35,7 +35,7 @@ export function Login() {
   return (
     
     <div className="Login">
-      <Header />
+      <HeaderLogin />
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="email">
           <Form.Label>Email:</Form.Label>
