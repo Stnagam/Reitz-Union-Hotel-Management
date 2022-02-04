@@ -1,11 +1,14 @@
 import React from 'react';
 
-import './demoform.css';
+
+
+
   
 class DemoForm extends React.Component {
-    constructor() {
-    super();
-    this.state = {
+  anythis: any;
+  constructor(props : any) {
+    super(props);
+    this.anythis = {
       input: {},
       errors: {}
     };
@@ -14,8 +17,8 @@ class DemoForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
      
-  handleChange(event) {
-    let input = this.state.input;
+  handleChange(event: any) {
+    const input = this.anythis.input;
     input[event.target.name] = event.target.value;
   
     this.setState({
@@ -23,13 +26,13 @@ class DemoForm extends React.Component {
     });
   }
      
-  handleSubmit(event) {
+  handleSubmit(event:any) {
     event.preventDefault();
   
     if(this.validate()){
         console.log(this.state);
   
-        let input = {};
+        let input:any = {};
         input["firstname"] = "";
         input["lastname"] = "";
         input["email"] = "";
@@ -44,8 +47,8 @@ class DemoForm extends React.Component {
   }
   
   validate(){
-      let input = this.state.input;
-      let errors = {};
+      let input = this.anythis.input;
+      let errors:any = {};
       let isValid = true;
    
       if (!input["firstname"]) {
@@ -154,106 +157,106 @@ class DemoForm extends React.Component {
         
         <form onSubmit={this.handleSubmit}>
   
-          <div class="firstname">
-            <label for="firstName">Firstname:</label>
+          <div className="firstname">
+            <label htmlFor="firstName">Firstname:</label>
             <input 
               type="text" 
               name="firstname" 
-              value={this.state.input.firstname}
+              value={this.anythis.input.firstname}
               onChange={this.handleChange}
-              class="form-control" 
+              className="form-control" 
               placeholder="Enter First name" 
               id="firstname" />
   
-              <div className="text-danger">{this.state.errors.firstname}</div>
+              <div className="text-danger">{this.anythis.errors.firstname}</div>
           </div>
 
-          <div class="lastname">
-            <label for="lastname">Lastname:</label>
+          <div className="lastname">
+            <label htmlFor="lastname">Lastname:</label>
             <input 
               type="text" 
               name="lastname" 
-              value={this.state.input.lastname}
+              value={this.anythis.input.lastname}
               onChange={this.handleChange}
-              class="form-control" 
+              className="form-control" 
               placeholder="Enter Last name" 
               id="lastname" />
   
-              <div className="text-danger">{this.state.errors.lastname}</div>
+              <div className="text-danger">{this.anythis.errors.lastname}</div>
           </div>
   
   
-          <div class="email">
-            <label for="email">Email Address:</label>
+          <div className="email">
+            <label htmlFor="email">Email Address:</label>
             <input 
               type="text" 
               name="email" 
-              value={this.state.input.email}
+              value={this.anythis.input.email}
               onChange={this.handleChange}
-              class="form-control" 
+              className="form-control" 
               placeholder="Enter email" 
               id="email" />
   
-              <div className="text-danger">{this.state.errors.email}</div>
+              <div className="text-danger">{this.anythis.errors.email}</div>
           </div>
   
-          <div class="password">
-            <label for="password">Password:</label>
+          <div className="password">
+            <label htmlFor="password">Password:</label>
             <input 
               type="password" 
               name="password" 
-              value={this.state.input.password}
+              value={this.anythis.input.password}
               onChange={this.handleChange}
-              class="form-control" 
+              className="form-control" 
               placeholder="Enter password" 
               id="password" />
   
-              <div className="text-danger">{this.state.errors.password}</div>
+              <div className="text-danger">{this.anythis.errors.password}</div>
           </div>
   
-          <div class="confirm_password">
-            <label for="confirm_password">Confirm Password:</label>
+          <div className="confirm_password">
+            <label htmlFor="confirm_password">Confirm Password:</label>
             <input 
               type="password" 
               name="confirm_password" 
-              value={this.state.input.confirm_password}
+              value={this.anythis.input.confirm_password}
               onChange={this.handleChange}
-              class="form-control" 
+              className="form-control" 
               placeholder="Enter confirm password" 
               id="confirm_password" />
   
-              <div className="text-danger">{this.state.errors.confirm_password}</div>
+              <div className="text-danger">{this.anythis.errors.confirm_password}</div>
           </div>
 
-          <div class="age">
-            <label for="age">Age:</label>
+          <div className="age">
+            <label htmlFor="age">Age:</label>
             <input 
               type="text" 
               name="age" 
-              value={this.state.input.age}
+              value={this.anythis.input.age}
               onChange={this.handleChange}
-              class="form-control" 
+              className="form-control" 
               placeholder="Enter your age" 
               id="age" />
   
-              <div className="text-danger">{this.state.errors.age}</div>
+              <div className="text-danger">{this.anythis.errors.age}</div>
           </div>
 
-          <div class="contact_number">
-            <label for="contactnumber">Contact Number:</label>
+          <div className="contact_number">
+            <label htmlFor="contactnumber">Contact Number:</label>
             <input 
               type="text" 
               name="contact_number" 
-              value={this.state.input.contact_number}
+              value={this.anythis.input.contact_number}
               onChange={this.handleChange}
-              class="form-control" 
+              className="form-control" 
               placeholder="Enter Contact number" 
               id="contact_number" />
   
-              <div className="text-danger">{this.state.errors.contact_number}</div>
+              <div className="text-danger">{this.anythis.errors.contact_number}</div>
           </div>
              
-          <input classname="submit" type="submit" value="Sign up" class="btn btn-success" />
+          <input className="submit" type="submit" value="Sign up" />
         </form>
       </div>
     );
