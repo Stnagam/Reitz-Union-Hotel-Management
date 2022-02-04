@@ -45,8 +45,11 @@ export default function Header() {
             <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
           </Link>
           
-          
+          <Link
+          to="/Signup"
+          >
           <Button  style={{backgroundColor: "orange", color: "black"}} color="inherit" >SignUp</Button>
+        </Link>
         </Toolbar>
       </AppBar>
   );

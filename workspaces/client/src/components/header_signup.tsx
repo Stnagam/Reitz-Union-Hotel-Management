@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 // import { BrowserRouter, Route, Switch, Redirect, Link, useNavigate, useHistory, NavLink } from "react-router-dom";
 
 
-export default function HeaderLogin() {
+export default function HeaderSignUp() {
 
   return (
       <AppBar position="static">
@@ -43,18 +43,12 @@ export default function HeaderLogin() {
             Reitz Union Hotel
           </Typography>
           </Link>
-          {/* <Link
+          { <Link
             to= "/login"
             >
             <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
-          </Link> */}
+          </Link>}
           
-          
-          <Link
-          to="/Signup"
-          >
-          <Button  style={{backgroundColor: "orange", color: "black"}} color="inherit" >SignUp</Button>
-        </Link>
         
         </Toolbar>
       </AppBar>
