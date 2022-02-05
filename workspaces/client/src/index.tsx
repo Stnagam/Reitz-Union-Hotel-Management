@@ -8,6 +8,8 @@ import Home from './components/home';
 import Header from './default/header';
 import Footer from './default/footer';
 import Login from './components/login';
+import DemoForm from './components/DemoForm';
+import ForgotPassword from './components/forgotPassword';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -17,6 +19,8 @@ ReactDOM.render(
     <Route path="/Home" element={<Home />} />
     {/* <Route path="/default/footer" element={<Footer />} /> */}
     <Route path="/Login" element={<Login />} />
+    <Route path="/Signup" element={<DemoForm />} />
+    <Route path='/forgotpassword' element={<ForgotPassword />} />
   </Routes>
 </BrowserRouter>,
 document.getElementById("root")

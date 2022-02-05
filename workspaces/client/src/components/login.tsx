@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 //import "./Login.css";
-import Header from "../default/header";
+import HeaderLogin from "../components/header_login";
 import Footer from "../default/footer"
+import ForgotPassword from "../components/forgotPassword"
+import { Link } from "react-router-dom";
 
 export function Login() {
   console.log("Login");
@@ -35,7 +37,7 @@ export function Login() {
   return (
     
     <div className="Login">
-      <Header />
+      <HeaderLogin />
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="email">
           <Form.Label>Email:</Form.Label>
@@ -56,7 +58,10 @@ export function Login() {
             onChange={(e : any) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <a href="">Forgot Password?</a>
+        {/* <a href="">Forgot Password?</a> */}
+        <Link
+        to='/ForgotPassword'
+        >Forgot Password?</Link>
         <Button onClick={login} size="lg" type="submit" >
           Login
         </Button>

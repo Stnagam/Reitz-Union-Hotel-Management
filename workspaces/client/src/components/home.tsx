@@ -53,9 +53,9 @@ const Home = () => {
           conference event.
         </p>
 
-        <p>
+        <p style={{textAlign: "center"}}>
           <Link to="/dashboard">
-            <button style={{ backgroundColor: "Orange" }} color="Secondary">
+            <button style={{ backgroundColor: "Orange", height : "50px", width: "300px" } } color="Secondary">
               Make A Reservation
             </button>
           </Link>
