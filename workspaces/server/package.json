@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "This workspace contains server application.",
+  "main": "index.js",
+  "scripts": {
+
+    "start": "go run ."
+
+  },
+  "author": "",
+  "license": "ISC"
+
+}
