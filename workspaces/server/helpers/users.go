@@ -28,10 +28,6 @@ type User struct {
 	Email     string `gorm:"primary_key" json:"email"`
 	Password  string `json:"password"`
 }
-type emailResult struct {
-	Email    string
-	Password string
-}
 
 func InitialMigration() {
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
@@ -72,12 +68,6 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	DB.Create(&user)
 	json.NewEncoder(w).Encode(user)
 }
-
-// func LoginAuthencticator(w http.ResponseWriter, r *http.Request) {
-// 	w.Header().Set("Content-Type", "application/json")
-// 	json.NewEncoder(w).Encode(user)
-
-// }
 
 func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")

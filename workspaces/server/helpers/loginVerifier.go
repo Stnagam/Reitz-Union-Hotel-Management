@@ -27,6 +27,6 @@ func LoginVerifierfnc(emailToVerify string, passwordToVerify string) (res bool) 
 		return false
 	}
 	//	fmt.Println(result.Password)
-	//	fmt.Println("login Succesful!")
+	fmt.Println("login Succesful!")
 	return true
 }

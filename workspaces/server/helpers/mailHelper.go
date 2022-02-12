@@ -9,7 +9,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"os/exec"
 	"strconv"
 	"strings"
 	"time"
@@ -96,16 +95,17 @@ func MailHelper() {
 	check(err)
 	secret := string(data)
 	otp := getTOTPToken(secret)
+	fmt.Println(otp)
 
 	//Copies the otp generated to your clipboard
-	err = exec.Command("bash", "-c", fmt.Sprintf("echo %s | tr -d \"\n, \" | pbcopy", otp)).Run()
+	//err = exec.Command("bash", "-c", fmt.Sprintf("echo %s | tr -d \"\n, \" | pbcopy", otp)).Run()
 	check(err)
 
 	server := mail.NewSMTPClient()
 	server.Host = "smtp.mail.yahoo.com"
 	server.Port = 587
 	server.Username = "reitzunionhotel@yahoo.com"
-	server.Password = "*********"
+	server.Password = "yzhskjejxbkzokes"
 	server.Encryption = mail.EncryptionTLS
 
 	smtpClient, err := server.Connect()
@@ -117,7 +117,7 @@ func MailHelper() {
 	email := mail.NewMSG()
 	email.SetFrom("reitzunionhotel@yahoo.com")
 	email.AddTo("sheelaippili140@gmail.com")
-	//email.AddCc("niklausnagam@gmail.com")
+	email.AddCc("niklausnagam@gmail.com")
 	email.SetSubject("reset password otp verfication - Reitz union hotel")
 
 	email.SetBody(mail.TextHTML, htmlBody)
