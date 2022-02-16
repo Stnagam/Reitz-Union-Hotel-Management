@@ -7,8 +7,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/home';
 import Header from './default/header';
 import Footer from './default/footer';
-import Login from './components/login';
-import DemoForm from './components/DemoForm';
+import Login from './components/Login';
+import Signup from './components/Signup';
 import ForgotPassword from './components/forgotPassword';
 
 ReactDOM.render(
@@ -19,7 +19,7 @@ ReactDOM.render(
     <Route path="/Home" element={<Home />} />
     {/* <Route path="/default/footer" element={<Footer />} /> */}
     <Route path="/Login" element={<Login />} />
-    <Route path="/Signup" element={<DemoForm />} />
+    <Route path="/Signup" element={<Signup />} />
     <Route path='/forgotpassword' element={<ForgotPassword />} />
   </Routes>
 </BrowserRouter>,
