@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
 
-    "start": "go run ."
+    "start": "go run main.go"
 
   },
   "author": "",

@@ -1,48 +1,48 @@
-import React from "react";
+import React from 'react';
 // importing Link from react-router-dom to navigate to
 // different end points.
-import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
+import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 // import IconButton from "@mui/material/IconButton";
 // import { AlignHorizontalCenter, RecentActorsOutlined } from "@mui/icons-material";
 //import {hp_table} from "./hp_table"
-import img from "./ReitzUnion.jpg";
-import { Box } from "@mui/system";
-import Header from "../default/header";
-import Footer from "../default/footer"
+import img from '../images/ReitzUnion.jpg';
+import { Box } from '@mui/system';
+import Header from '../default/header';
+import Footer from '../default/footer';
 
 const data = [
   {
-    Room_Type: "Standard Room",
-    Accomodations: "1 Queen Bed or 2 Double Beds",
-    Occupancy_Rate: "$109",
-    Football_Weekends: "$200-$225",
+    Room_Type: 'Standard Room',
+    Accomodations: '1 Queen Bed or 2 Double Beds',
+    Occupancy_Rate: '$109',
+    Football_Weekends: '$200-$225'
   },
   {
-    Room_Type: "Deluxe Room",
-    Accomodations: "1 King Bed or 2 Queen Beds",
-    Occupancy_Rate: "$119",
-    Football_Weekends: "$250-$275",
+    Room_Type: 'Deluxe Room',
+    Accomodations: '1 King Bed or 2 Queen Beds',
+    Occupancy_Rate: '$119',
+    Football_Weekends: '$250-$275'
   },
   {
-    Room_Type: "Business Suite",
-    Accomodations: "1 Sofa Sleeper or 2 Double Beds",
-    Occupancy_Rate: "$129",
-    Football_Weekends: "$300",
+    Room_Type: 'Business Suite',
+    Accomodations: '1 Sofa Sleeper or 2 Double Beds',
+    Occupancy_Rate: '$129',
+    Football_Weekends: '$300'
   },
   {
-    Room_Type: "Executive Suite",
-    Accomodations: "1 Sofa Sleeper or 2 Queen Beds",
-    Occupancy_Rate: "$139",
-    Football_Weekends: "$325",
-  },
+    Room_Type: 'Executive Suite',
+    Accomodations: '1 Sofa Sleeper or 2 Queen Beds',
+    Occupancy_Rate: '$139',
+    Football_Weekends: '$325'
+  }
 ];
 const Home = () => {
   return (
     <React.Fragment>
       <Header></Header>
       <div>
-        <img src={img} width={"100%"} height={"400px"} />
+        <img src={img} width={'100%'} height={'400px'} />
         <p>
           Located in the heart of the University of Florida campus, the Reitz
           Union Hotel provides a unique and diverse environment, committed to
@@ -53,9 +53,16 @@ const Home = () => {
           conference event.
         </p>
 
-        <p style={{textAlign: "center"}}>
-          <Link to="/dashboard">
-            <button style={{ backgroundColor: "Orange", height : "50px", width: "300px" } } color="Secondary">
+        <p style={{ textAlign: 'center' }}>
+          <Link to='/dashboard'>
+            <button
+              style={{
+                backgroundColor: 'Orange',
+                height: '50px',
+                width: '300px'
+              }}
+              color='Secondary'
+            >
               Make A Reservation
             </button>
           </Link>
@@ -68,14 +75,14 @@ const Home = () => {
           state issued ID and credit card are required at check-in. ALL RATES
           ARE SUBJECT TO CHANGE.
         </p>
-        <h2 style={{ textAlign: "center" }}>Accomodation and Rates</h2>
-        <Box display="flex" alignItems={"center"} justifyContent={"center"}>
+        <h2 style={{ textAlign: 'center' }}>Accomodation and Rates</h2>
+        <Box display='flex' alignItems={'center'} justifyContent={'center'}>
           <table
             style={{
-              textAlign: "left",
-              borderWidth: "1px",
-              borderColor: "#aaaaaa",
-              borderStyle: "solid",
+              textAlign: 'left',
+              borderWidth: '1px',
+              borderColor: '#aaaaaa',
+              borderStyle: 'solid'
             }}
           >
             <tr>
@@ -89,8 +96,8 @@ const Home = () => {
                 <tr key={key}>
                   <td>{val.Room_Type}</td>
                   <td>{val.Accomodations}</td>
-                  <td style={{ textAlign: "center" }}>{val.Occupancy_Rate}</td>
-                  <td style={{ textAlign: "center" }}>
+                  <td style={{ textAlign: 'center' }}>{val.Occupancy_Rate}</td>
+                  <td style={{ textAlign: 'center' }}>
                     {val.Football_Weekends}
                   </td>
                 </tr>
