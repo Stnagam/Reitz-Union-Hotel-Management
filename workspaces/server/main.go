@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"server/routes"
+	"server/utils"
+)
 
 func main() {
-	fmt.Println("hello world")
+	utils.DBConnection()
+	routes.Controller()
+
 }
