@@ -54,7 +54,7 @@ const Home = () => {
         </p>
 
         <p style={{ textAlign: 'center' }}>
-          <Link to='/dashboard'>
+          <Link to='/Booking'>
             <button
               style={{
                 backgroundColor: 'Orange',
