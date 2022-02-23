@@ -1,0 +1,12 @@
+{
+   "private": true,
+   "name": "Reitz-Union-Hotel-Management",
+   "workspaces": ["workspaces/*"],
+   "scripts": {
+       "client": "yarn workspace client start",
+        "server": "yarn workspace server start",
+
+        "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+
+   }
+}
