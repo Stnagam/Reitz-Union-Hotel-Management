@@ -36,7 +36,7 @@ func FindOne(email, password string) map[string]interface{} {
 
 	errf := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
 	if errf != nil && errf == bcrypt.ErrMismatchedHashAndPassword { //Password does not match!
-		var resp = map[string]interface{}{"status": false, "message": "Invalid login credentials. Please try again"}
+		var resp = map[string]interface{}{"message": "Invalid login credentials. Please try again"}
 		return resp
 	}
 
@@ -56,9 +56,11 @@ func FindOne(email, password string) map[string]interface{} {
 	if error != nil {
 		fmt.Println(error)
 	}
+	var resp = map[string]interface{}{"message": "logged in"}
 
-	var resp = map[string]interface{}{"status": false, "message": "logged in"}
 	resp["token"] = tokenString //Store the token in the response
-	resp["user"] = user
+	resp["email"] = user.Email
+	resp["firstname"] = user.FirstName
+	resp["lastname"] = user.LastName
 	return resp
 }
