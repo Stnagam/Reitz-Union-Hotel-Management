@@ -61,8 +61,22 @@ export default function Login() {
   // function validateForm() {
   //   return username.length > 0 && password.length > 0;
   // }
-  const callLoginApi = () => {
+  const callLoginApi = async (e) => {
     handleValidation();
+    e.preventDefault();
+    fetch("http://localhost:8080/login", {
+      method: "POST",
+      credentials: "include",
+      mode:"no-cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Email:username,
+        Password:password,
+      }),
+    });
   };
 
   var temp = { pass: '123456', username: 'he.patel@ufl.edu' };

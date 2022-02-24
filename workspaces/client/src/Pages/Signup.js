@@ -22,8 +22,8 @@ const Signup = () => {
     email: "",
     password: "",
     password1: "",
-    mobile: 0 ,
-    age: 0 ,
+    mobile: "",
+    age: "",
   });
 
   const [errors, seterrors] = useState([]);
@@ -135,24 +135,30 @@ const Signup = () => {
   const onSubmit = async (e) => {
     handleValidation();
     e.preventDefault();
-    fetch("http://localhost:8000/signup", {
+    fetch("http://localhost:8080/signup", {
       method: "POST",
       credentials: "include",
-      mode:"no-cors",
+      mode: "no-cors",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        Firstname:firstname,
-        Lastname:lastname,
-        Email:email,
-        Password:password,
-        Mobile:parseInt(mobile),
-        Age:parseInt(age),
-      }),
-    });
-  };
+        Firstname: firstname,
+        Lastname: lastname,
+        Email: email,
+        Password: password,
+        Mobile: parseInt(mobile),
+        Age: parseInt(age),
+      })
+      }).then(res => {
+        console.log(res);
+      })
+      
+    };
+  
+    
+  
 
   return (
     <>
