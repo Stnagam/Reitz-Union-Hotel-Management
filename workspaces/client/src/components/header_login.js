@@ -1,5 +1,5 @@
 import * as React from "react";
-  
+
 // importing material UI components
 import AppBar from "@mui/material/AppBar";
 // import Box from "@mui/material/Box";
@@ -7,56 +7,64 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 // import MenuIcon from "@mui/icons-material/Menu";
 // import {Login} from "./Login";
 // import { BrowserRouter, Route, Switch, Redirect, Link, useNavigate, useHistory, NavLink } from "react-router-dom";
 
-
 export default function HeaderLogin() {
-
   return (
-      <AppBar position="static">
-        <Toolbar>
-          {/*Inside the IconButton, we 
+    <AppBar position="static">
+      <Toolbar>
+        {/*Inside the IconButton, we 
            can render various icons*/}
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            {/*This is a simple Menu 
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          sx={{ mr: 2 }}
+        >
+          {/*This is a simple Menu 
              Icon wrapped in Icon */}
-            {/* <MenuIcon /> */}
-          </IconButton>
-          {/* The Typography component applies 
+          {/* <MenuIcon /> */}
+        </IconButton>
+        {/* The Typography component applies 
            default font weights and sizes */}
-        <Link
-            to="/home" style={
-             {textDecoration: "inherit", color:"inherit", textAlign: "center"}
-            }
-            >
-          <Typography variant="h3" 
-            component="div" sx={{ flexGrow: 1 }} style={{textAlign: "center"}}>
+
+        <Typography
+          variant="h3"
+          component="div"
+          sx={{ flexGrow: 1 }}
+          style={{ textAlign: "center" }}
+        >
+          <Link
+            to="/home"
+            style={{
+              textDecoration: "inherit",
+              color: "inherit",
+              textAlign: "center",
+            }}
+          >
             Reitz Union Hotel
-          </Typography>
           </Link>
-          {/* <Link
+        </Typography>
+
+        {/* <Link
             to= "/login"
             >
             <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
           </Link> */}
-          
-          
-          <Link
-          to="/Signup"
+
+        <Link to="/Signup">
+          <Button
+            style={{ backgroundColor: "orange", color: "black" }}
+            color="inherit"
           >
-          <Button  style={{backgroundColor: "orange", color: "black"}} color="inherit" >SignUp</Button>
+            SignUp
+          </Button>
         </Link>
-        
-        </Toolbar>
-      </AppBar>
+      </Toolbar>
+    </AppBar>
   );
 }
