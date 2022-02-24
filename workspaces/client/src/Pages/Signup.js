@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 // import CommonBackgroundPage from '../CommonBackground';
 // import decode from 'jwt-decode';
 /*import  "./technical.css";*/
-import "./signup.css";
-import HeaderSignUp from "./header_signup";
+import "../Style/signup.css";
+import HeaderSignUp from "../components/header_signup";
 import Footer from "../default/footer";
 
 const Signup = () => {
@@ -22,8 +22,8 @@ const Signup = () => {
     email: "",
     password: "",
     password1: "",
-    mobile: "",
-    age: "",
+    mobile: 0 ,
+    age: 0 ,
   });
 
   const [errors, seterrors] = useState([]);
@@ -107,6 +107,7 @@ const Signup = () => {
         }
       }
     }
+    //mobile = parseInt(mobile);
 
     if (!age) {
       formIsValid = false;
@@ -119,12 +120,13 @@ const Signup = () => {
         }
       }
     }
+    //age = parseInt(age);
 
     seterrors(errors);
     return formIsValid;
   };
 
-  const { firstname, lastname, email, mobile, password, password1, age } =
+  const { firstname, lastname, email, password, password1, mobile, age } =
     formData;
 
   const onChange = (e) =>
@@ -132,13 +134,30 @@ const Signup = () => {
 
   const onSubmit = async (e) => {
     handleValidation();
+    e.preventDefault();
+    fetch("http://localhost:8000/signup", {
+      method: "POST",
+      credentials: "include",
+      mode:"no-cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Firstname:firstname,
+        Lastname:lastname,
+        Email:email,
+        Password:password,
+        Mobile:parseInt(mobile),
+        Age:parseInt(age),
+      }),
+    });
   };
 
   return (
     <>
-      
       <Fragment>
-          <HeaderSignUp/>
+        <HeaderSignUp />
         <div className="signupform">
           <h1>First time user!!! Register</h1>
           <span style={{ color: "red" }}>{formData.errormsg}</span>
@@ -276,7 +295,7 @@ const Signup = () => {
           </Form>
         </div>
       </Fragment>
-      <Footer/>
+      <Footer />
     </>
   );
 };

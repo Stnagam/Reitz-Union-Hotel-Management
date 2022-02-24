@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './Login.css';
+import '../Style/Login.css';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Footer from '../default/footer';
-import HeaderLogin from './header_login';
+import HeaderLogin from '../components/header_login';
 
 export default function Login() {
   const navigate = useNavigate();
