@@ -10,28 +10,16 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// func SignUpHandler(w http.ResponseWriter, r *http.Request) {
-
-// 	user := &models.User{}
-//   err :=	json.NewDecode(r.Body).Decode(user)
-
-// 	pass, err := bcrypt.GenerateFromPassword([]byte(user.Password), 10)
-// 	if err != nil {
-
-// 		log.Fatal(err)
-
-// 		fmt.Print("errrorr")
-// 	}
-// 	i err == nil {
-// 		user.Password  string(pass)
-
-// 		json.NewEncoder(w).Encode(createdUse)
-
-// 	}
-
 func SignUpHandler(w http.ResponseWriter, r *http.Request) {
 	user := &models.User{}
 	json.NewDecoder(r.Body).Decode(user)
+	existsOrNot := utils.DB.First(&user, "email = ?", user.Email)
+	if existsOrNot.RowsAffected != 0 {
+		var resp = map[string]interface{}{"message": "Email ID Already exists"}
+		json.NewEncoder(w).Encode(resp)
+		return
+
+	}
 
 	pass, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	if err != nil {
@@ -45,12 +33,15 @@ func SignUpHandler(w http.ResponseWriter, r *http.Request) {
 	user.Password = string(pass)
 
 	createdUser := utils.DB.Create(user)
-	var errMessage = createdUser.Error
 
 	if createdUser.Error != nil {
-		fmt.Println(errMessage)
+
 		json.NewEncoder(w).Encode(err)
 		return
+	} else {
+		var success = map[string]interface{}{"message": "Success"}
+		json.NewEncoder(w).Encode(success)
+		return
 	}
-	json.NewEncoder(w).Encode(createdUser)
+
 }
