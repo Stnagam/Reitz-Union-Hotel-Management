@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 100%;
+}
+
+.adults,
+.children {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.submit {
+  align-items: center;
+}

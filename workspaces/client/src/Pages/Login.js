@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import '../Style/Login.css';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
+import axios from 'axios';
 import Footer from '../default/footer';
 import HeaderLogin from '../components/header_login';
 
@@ -12,7 +12,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const [message, setMessage] = useState('');
   const [errors, seterrors] = useState([]);
 
   const handleValidation = () => {
@@ -58,12 +58,27 @@ export default function Login() {
     return formIsValid;
   };
 
-  // function validateForm() {
-  //   return username.length > 0 && password.length > 0;
-  // }
-  const callLoginApi = () => {
+
+  const callLoginApi = (e) => {
     handleValidation();
-  };
+    e.preventDefault();
+    axios.post('http://localhost:8080/login',{
+        Email: username,
+        Password: password,
+    }).then(res => {
+      // console.log(res.data['message']);
+      // setMessage(res.data['message']);
+      // alert(message);
+      if(res.data['message'] === 'logged in'){
+        setMessage(res.data['message']);
+        navigate("/Booking");
+      }
+      else{
+        alert(res.data['message']);
+      }
+    });
+    };
+    
 
   var temp = { pass: '123456', username: 'he.patel@ufl.edu' };
 
