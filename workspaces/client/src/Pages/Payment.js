@@ -53,7 +53,7 @@ const Payment = () => {
     }
     if (!month) {
       formIsValid = false;
-      errors["cardnum"] = "username cannot be empty";
+      errors["cardnum"] = "Cardnumber invalid";
     }
 
     if (!month) {
