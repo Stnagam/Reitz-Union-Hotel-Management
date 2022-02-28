@@ -11,6 +11,8 @@ import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import ForgotPassword from './components/forgotPassword';
 import Booking from './Pages/Booking';
+import { Rooms } from './Pages/Rooms';
+import Payment from './Pages/Payment';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -20,6 +22,8 @@ ReactDOM.render(
     <Route path="/Login" element={<Login />} />
     <Route path="/Signup" element={<Signup />} />
     <Route path="/Booking" element={<Booking />} />
+    <Route path="/Rooms" element={<Rooms/>} />
+    <Route path="/Payment" element={<Payment/>} />
     <Route path='/forgotpassword' element={<ForgotPassword />} />
   </Routes>
 </BrowserRouter>,
