@@ -1,6 +1,8 @@
 import { Input, Select } from "@mui/material";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import Header_Common from "../components/header_common.js";
+import Footer from "../default/footer.js";
 import Header from "../default/headerHome.js";
 import "../Style/payment.css";
 
@@ -75,11 +77,11 @@ const Payment = () => {
   };
 
   const onClick = () => {
-    if (handleValidation()) alert("Payment received successfull");
+    if (handleValidation) alert("Payment received successfull");
   };
   return (
     <div className="payment">
-      <Header />
+       <Header_Common />
       <Form.Group className="radio">
         <div className="radio">
           <div>
@@ -199,6 +201,7 @@ const Payment = () => {
       <Button type="submit" onClick={onClick}>
         <div className="make_payment">Payment</div>
       </Button>
+      <Footer/>
     </div>
   );
 };
