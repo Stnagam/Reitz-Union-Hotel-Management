@@ -134,6 +134,7 @@ const Signup = () => {
   const onSubmit = async (e) => {
     // handleValidation();
     e.preventDefault();
+
     if (handleValidation()) {
       axios
         .post("http://localhost:8080/signup", {
@@ -146,7 +147,7 @@ const Signup = () => {
         })
         .then((res) => {
           console.log(res.data);
-          alert(res.data['message']);
+          alert(res.data["message"]);
           if (res.data["message"] === "Success") {
             navigate("/login");
           }
@@ -285,14 +286,14 @@ const Signup = () => {
               >
                 Register
               </Button>
-              <Link to="/login">
+              {/* <Link to="/login">
                 <Button
                   style={{ color: "white", background: "#1976d2" }}
                   size="lg"
                 >
                   Login
                 </Button>
-              </Link>
+              </Link> */}
             </div>
           </Form>
         </div>

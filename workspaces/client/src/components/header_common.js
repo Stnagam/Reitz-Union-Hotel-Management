@@ -1,0 +1,93 @@
+import * as React from "react";
+
+// importing material UI components
+import AppBar from "@mui/material/AppBar";
+// import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import { Link } from "react-router-dom";
+import axios from "axios";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import {Login} from "./Login";
+// import { BrowserRouter, Route, Switch, Redirect, Link, useNavigate, useHistory, NavLink } from "react-router-dom";
+
+export default function Header_Common() {
+  const token = localStorage.getItem("token");
+
+  const onClick = (e) => {
+    let token = localStorage.getItem("token");
+    // let data = {
+
+    //     "x-access-token": localStorage.getItem("token"),
+
+    // };
+    const api = "http://localhost:8080/auth/dummy";
+
+    axios.post("http://localhost:8080/auth/dummy", {
+      headers: {
+        "Authorization": token,
+      },
+    });
+    // axios.defaults.headers.post["Auth"] = token;
+
+    console.log(token);
+  };
+
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        {/*Inside the IconButton, we 
+           can render various icons*/}
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          sx={{ mr: 2 }}
+        >
+          {/*This is a simple Menu 
+             Icon wrapped in Icon */}
+          {/* <MenuIcon /> */}
+        </IconButton>
+        {/* The Typography component applies 
+           default font weights and sizes */}
+
+        <Typography
+          variant="h3"
+          component="div"
+          sx={{ flexGrow: 1 }}
+          style={{ textAlign: "center" }}
+        >
+          <Link
+            to="/home"
+            style={{
+              textDecoration: "inherit",
+              color: "inherit",
+              textAlign: "center",
+            }}
+          >
+            Reitz Union Hotel
+          </Link>
+        </Typography>
+
+        {/* <Link
+            to= "/login"
+            >
+            <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
+          </Link> */}
+
+        {/* <Link to="/Signup"> */}
+        <Button
+          style={{ backgroundColor: "orange", color: "black" }}
+          color="inherit"
+          onClick={onClick}
+        >
+          Log out
+        </Button>
+        {/* </Link> */}
+      </Toolbar>
+    </AppBar>
+  );
+}

@@ -17,15 +17,17 @@ import Payment from './Pages/Payment';
 ReactDOM.render(
   <BrowserRouter>
   <Routes>
-    <Route path="/" element={<App />} />
-    <Route path="/Home" element={<Home />} />
-    <Route path="/Login" element={<Login />} />
+    {/* <Route path="/" element={<App />} /> */}
+    <Route path="/" element={<Home />} />
+    <Route path="/home" element={<Home />} />
+    <Route default path="/Login" element={<Login />} />
     <Route path="/Signup" element={<Signup />} />
     <Route path="/Booking" element={<Booking />} />
     {/* <Route path="/Rooms" element={<Rooms/>} /> */}
     <Route path="/Payment" element={<Payment/>} />
     <Route path='/forgotpassword' element={<ForgotPassword />} />
   </Routes>
+   
 </BrowserRouter>,
 document.getElementById("root")
 );

@@ -1,11 +1,11 @@
 
 import React from 'react';
-  
+import "../Style/footer.css"
 const Footer = () => (
   <footer className="footer" background-color="orange">
-    <p style={{textAlign: "center"}}>Contact Details: 911</p>
-    <p style={{textAlign: "center"}}>Copyrights: Reitz Union Project Group</p>
-    <p style={{textAlign: "center"}}>Ref: https://union.ufl.edu/hotel/</p>
+    <div className='Contact' style={{textAlign: "center"}}>Contact Details: 911</div>
+    <div className='Contact' style={{textAlign: "center"}}>Copyrights: Reitz Union Project Group</div>
+    <div className='Contact' style={{textAlign: "center"}}>Ref: https://union.ufl.edu/hotel/</div>
   </footer>
 );
   
