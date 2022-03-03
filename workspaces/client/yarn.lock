@@ -6882,10 +6882,10 @@
     "validator" "^13.6.0"
     "yargs" "^17.2.1"
 
-"mochawesome@^7.1.0":
-  "integrity" "sha512-IXKrNpv3VaWCvxP8mB69gBuN9vVMXawoA/9l6voDiCnl7Ih5s3mM6Sy+zEIzjcLMSTfCthbhaySCzMFeCQfmwA=="
-  "resolved" "https://registry.npmjs.org/mochawesome/-/mochawesome-7.1.0.tgz"
-  "version" "7.1.0"
+"mochawesome@^7.1.1":
+  "integrity" "sha512-fCWhFhTxTYZLNPpX1SXVRPOKWPluvhi9bhSfMUypHFn4p5pWYY96SniERDCgXjsBXtTklXm8F53S63AjWxRjxw=="
+  "resolved" "https://registry.npmjs.org/mochawesome/-/mochawesome-7.1.1.tgz"
+  "version" "7.1.1"
   dependencies:
     "chalk" "^4.1.2"
     "diff" "^5.0.0"
@@ -8183,6 +8183,11 @@
   "version" "6.2.1"
   dependencies:
     "history" "^5.2.0"
+
+"react-script@^2.0.5":
+  "integrity" "sha1-nawg+Xz/H7QPW0CE4/RLguMAFXI="
+  "resolved" "https://registry.npmjs.org/react-script/-/react-script-2.0.5.tgz"
+  "version" "2.0.5"
 
 "react-scripts@^5.0.0":
   "integrity" "sha512-3i0L2CyIlROz7mxETEdfif6Sfhh9Lfpzi10CtcGs1emDQStmZfWjJbAIMtRD0opVUjQuFWqHZyRZ9PPzKCFxWg=="
