@@ -16,8 +16,7 @@ import (
 func BookingHandler(w http.ResponseWriter, r *http.Request) {
 	currBooking := &models.Booking{}
 	json.NewDecoder(r.Body).Decode(currBooking)
-	fmt.Println(currBooking.BookingID)
-	fmt.Println(currBooking.CheckIn)
+	
 
 	if currBooking.PaymentStatus == "false" {
 		var resp = map[string]interface{}{"message": "Payment Failed"}
