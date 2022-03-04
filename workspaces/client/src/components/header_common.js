@@ -25,11 +25,19 @@ export default function Header_Common() {
     // };
     const api = "http://localhost:8080/auth/dummy";
 
-    axios.post("http://localhost:8080/auth/dummy", {
-      headers: {
-        "Authorization": token,
-      },
-    });
+    const body = {};
+    axios
+      .post("http://localhost:8080/auth/dummy", body, {
+        headers: {
+          "x-access-token": token,
+        },
+      })
+      .then(() => {
+        if (token) {
+
+          localStorage.removeItem("token");
+        }
+      });
     // axios.defaults.headers.post["Auth"] = token;
 
     console.log(token);
