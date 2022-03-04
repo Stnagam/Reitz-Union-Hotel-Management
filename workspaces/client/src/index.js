@@ -10,6 +10,7 @@ import Footer from './default/footer';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import ForgotPassword from './components/forgotPassword';
+import ResetPassword from './components/setNewPassword';
 import Booking from './Pages/Booking';
 // import { Rooms } from './Pages/Rooms';
 import Payment from './Pages/Payment';
@@ -28,6 +29,7 @@ ReactDOM.render(
     {/* <Route path="/Rooms" element={<Rooms/>} /> */}
     <Route path="/payment" element={<Payment/>} />
     <Route path='/forgotpassword' element={<ForgotPassword />} />
+    <Route path='/resetpassword' element={<ResetPassword />} />
   </Routes>
    
 </BrowserRouter>,

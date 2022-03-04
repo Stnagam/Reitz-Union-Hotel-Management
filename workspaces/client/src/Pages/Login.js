@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Footer from "../default/footer";
 import HeaderLogin from "../components/header_login";
+import ForgotPassword from "../components/forgotPassword";
 
 export default function Login() {
   const storedJwt = localStorage.getItem("token");
@@ -124,7 +125,8 @@ export default function Login() {
             required
           />
         </Form.Group>
-        <a href="">Forgot Password?</a>
+        <Link to= '/forgotpassword'>
+        Forgot Password? </Link>
         <br />
         <div className="buttons">
           {/* <Link to='/signup'>
