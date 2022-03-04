@@ -17,6 +17,7 @@ require (
 	github.com/joho/godotenv v1.4.0
 	github.com/julienschmidt/httprouter v1.3.0
 	github.com/lib/pq v1.1.1 // indirect
+	github.com/xhit/go-simple-mail v2.2.2+incompatible
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292
 	gorm.io/gorm v1.22.5
 )

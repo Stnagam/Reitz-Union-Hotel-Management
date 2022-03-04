@@ -24,7 +24,9 @@ func JwtVerify(next http.Handler) http.Handler {
 		if header == "" {
 			//Token is missing, returns with error code 403 Unauthorized
 			w.WriteHeader(http.StatusForbidden)
-			json.NewEncoder(w).Encode(Exception{Message: "Missing auth token"})
+			var resp = map[string]interface{}{"message": "Illegal Token"}
+			json.NewEncoder(w).Encode(resp)
+			//	json.NewEncoder(w).Encode(Exception{Message: "Missing auth token"})
 			return
 		}
 		tk := &models.Token{}
@@ -35,9 +37,12 @@ func JwtVerify(next http.Handler) http.Handler {
 
 		if err != nil {
 			w.WriteHeader(http.StatusForbidden)
-			json.NewEncoder(w).Encode(Exception{Message: err.Error()})
+			var resp = map[string]interface{}{"message": "Token has been compromised"}
+			json.NewEncoder(w).Encode(resp)
 			return
 		}
+		// var success = map[string]interface{}{"message": "Success"}
+		// json.NewEncoder(w).Encode(success)
 
 		ctx := context.WithValue(r.Context(), "user", tk)
 		next.ServeHTTP(w, r.WithContext(ctx))
