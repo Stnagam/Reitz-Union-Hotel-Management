@@ -28,16 +28,14 @@ func Controller() {
 
 	router.HandleFunc("/signup", handlers.SignUpHandler).Methods("POST")
 	router.HandleFunc("/login", handlers.LoginHandler).Methods("POST")
-
-
-	s := router.PathPrefix("/auth").Subrouter()
-	s.Use(utils.JwtVerify)
-	//s.HandleFunc("/dummy", handlers.DummyHandler).Methods("POST")
-	s.HandleFunc("/logout", handlers.LogoutHandler).Methods("POST")
-	s.HandleFunc("/bookings", handlers.BookingHandler).Methods("POST")
 	router.HandleFunc("/otpgeneration", handlers.OTPGenerationHandler).Methods("POST")
 	router.HandleFunc("/forgotpassword", handlers.ForgotPasswordHandler).Methods("POST")
 
+	s := router.PathPrefix("/auth").Subrouter()
+	s.Use(utils.JwtVerify)
+
+	s.HandleFunc("/logout", handlers.LogoutHandler).Methods("POST")
+	s.HandleFunc("/bookings", handlers.BookingHandler).Methods("POST")
 
 	cors(s)
 	log.Fatal(http.ListenAndServe(":8080", cors(router)))

@@ -1,3 +1,3 @@
 package constants
 
-const LetterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const LetterBytes = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
