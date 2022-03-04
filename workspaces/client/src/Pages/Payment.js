@@ -18,7 +18,7 @@ const Payment = () => {
   });
 
   const BookingID = "";
-  const PaymentStatus = "";
+  const PaymentStatus = "true";
 
   const { cardnum, zip, month, year, cvv } = data;
 
@@ -27,7 +27,6 @@ const Payment = () => {
   const handleValidation = () => {
     let errors = {};
     let formIsValid = true;
-    
 
     if (!cardnum) {
       formIsValid = false;
@@ -69,30 +68,30 @@ const Payment = () => {
 
   const onClick = () => {
     if (handleValidation()) {
-      console.log({BookingID});
-      console.log(localStorage.getItem("email"));
-      console.log(localStorage.getItem("adults"));
-      console.log(localStorage.getItem("childrens"));
-      console.log(localStorage.getItem("checkin"));
-      console.log(localStorage.getItem("checkout"));
-      //  localStorage.getItem("email"); "adults", "children", "checkin", "checkout"));
-      const data ={};
-      axios
-        .post("http://localhost:8080/auth/bookings", {
-          BookingID,
-          PaymentStatus,
-          Email:localStorage.getItem("email"),
-          NoOfGuest: localStorage.getItem("adults"),
-          NoOfChildren: localStorage.getItem("childrens"),
-          Chckin: localStorage.getItem("checkin"),
-          Checkout: localStorage.getItem("checkout")}, {
-        headers: {
-          "x-access-token": token,
-        }).then((res) => {
-          console.log(res.data);
-          
-        });
+      let token = localStorage.getItem("token");
       
+      axios
+        .post(
+          "http://localhost:8080/auth/bookings",
+          {
+            BookingID,
+            PaymentStatus,
+            Email: localStorage.getItem("email").toString(),
+            NoOfGuests: parseInt(localStorage.getItem("adults")),
+            NoOfChildren: parseInt(localStorage.getItem("childrens")),
+            CheckIn: localStorage.getItem("checkin"),
+            CheckOut: localStorage.getItem("checkout"),
+          },
+          {
+            headers: {
+              "x-access-token": token,
+            },
+          }
+        )
+        .then((res) => {
+          // console.log(res);
+        });
+
       alert("Payment received successfull");
     }
   };
@@ -100,16 +99,7 @@ const Payment = () => {
     <div className="payment">
       <Header_Common />
       <Form.Group className="radio">
-        {/* <div className="radio">
-          <div>
-            <input name="gateway" type="radio" value="test_gateway" />
-            <label htmlFor="test_gateway">Test Gateway</label>
-          </div>
-          <div>
-            <input name="gateway" type="radio" value="stripe" />
-            <label htmlFor="stripe">Credit Card</label>
-          </div>
-        </div> */}
+        
       </Form.Group>
       <Form.Group>
         <div className="details">
@@ -156,6 +146,7 @@ const Payment = () => {
               <label>Expiration Year</label>
             </h4>
             <select
+              id="year"
               name="year"
               fluid
               label="year"
@@ -178,6 +169,7 @@ const Payment = () => {
               <label>Expiration Month</label>
             </h4>
             <select
+              id="month"
               name="month"
               fluid
               label="month"
