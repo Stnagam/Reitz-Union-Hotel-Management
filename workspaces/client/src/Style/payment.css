@@ -19,7 +19,7 @@
   border: 1cm black;
 }
 .make_payment {
-  width: 20%;
+  /* width: 20%; */
   align-content: center;
   justify-content: center;
   /* align-self: center; */
