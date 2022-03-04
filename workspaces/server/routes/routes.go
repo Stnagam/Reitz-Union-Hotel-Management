@@ -35,6 +35,8 @@ func Controller() {
 	//s.HandleFunc("/dummy", handlers.DummyHandler).Methods("POST")
 	s.HandleFunc("/logout", handlers.LogoutHandler).Methods("POST")
 	s.HandleFunc("/bookings", handlers.BookingHandler).Methods("POST")
+	router.HandleFunc("/otpgeneration", handlers.OTPGenerationHandler).Methods("POST")
+	router.HandleFunc("/forgotpassword", handlers.ForgotPasswordHandler).Methods("POST")
 
 
 	cors(s)
