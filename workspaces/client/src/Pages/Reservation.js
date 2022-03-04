@@ -39,17 +39,18 @@ const data = [
     Football_Weekends: '$325'
   }
 ];
-const Home = () => {
 
-  const[isLogin, setIslogin] = useState(false);
+const Reservation = () => {
+    
+  const[isLogin, setIslogin] = useState();
   // setIslogin(localStorage.getItem("isLogin"));
   
    return (
     <React.Fragment>
       
-      {/* {localStorage.getItem("isLogin") == "true" && <Header_Common/>} */}
+      {localStorage.getItem("isLogin") == "true" && <Header_Common/>}
       {/* {localStorage.getItem("isLogin")  || <Header/>} */}
-      <Header/>
+      {/* <Header/> */}
       {/* {localStorage.("isLogin") && <Header/>} */}
       <div>
         <img src={img} width={'100%'} height={'400px'} />
@@ -64,10 +65,11 @@ const Home = () => {
         </p>
 
         <p style={{ textAlign: 'center' }}>
-          
            <Link to='/Booking'>
             <button
-              disabled={isLogin == false}
+            id="button"
+            type='button'
+              disabled={!localStorage.getItem("isLogin")}
               style={{
                 backgroundColor: 'Orange',
                 height: '50px',
@@ -90,14 +92,15 @@ const Home = () => {
         </p>
         <h2 style={{ textAlign: 'center' }}>Accomodation and Rates</h2>
         <Box display='flex' alignItems={'center'} justifyContent={'center'}>
-          <table className='table'
+          <table 
+          className='table'
             style={{
               textAlign: 'left',
               borderWidth: '1px',
               borderColor: '#aaaaaa',
               borderStyle: 'solid'
             }}
-          > 
+          >
             <tr>
               <th>Room Type</th>
               <th>Accomodations</th>
@@ -124,4 +127,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Reservation

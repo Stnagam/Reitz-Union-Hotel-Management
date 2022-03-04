@@ -48,7 +48,7 @@ export default function Header() {
           <Link
           to="/Signup"
           >
-          <Button  style={{backgroundColor: "orange", color: "black"}} color="inherit" >SignUp</Button>
+          <Button style={{backgroundColor: "orange", color: "black"}} color="inherit" >SignUp</Button>
         </Link>
         </Toolbar>
       </AppBar>
