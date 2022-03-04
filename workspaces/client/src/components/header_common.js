@@ -1,46 +1,41 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 
-// importing material UI components
 import AppBar from "@mui/material/AppBar";
-// import Box from "@mui/material/Box";
+
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import {Login} from "./Login";
-// import { BrowserRouter, Route, Switch, Redirect, Link, useNavigate, useHistory, NavLink } from "react-router-dom";
 
 export default function Header_Common() {
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   const onClick = (e) => {
     let token = localStorage.getItem("token");
-    // let data = {
-
-    //     "x-access-token": localStorage.getItem("token"),
-
-    // };
-    const api = "http://localhost:8080/auth/dummy";
 
     const body = {};
     axios
-      .post("http://localhost:8080/auth/dummy", body, {
+      .post("http://localhost:8080/auth/logout", body, {
         headers: {
           "x-access-token": token,
         },
       })
-      .then(() => {
-        if (token) {
-
-          localStorage.removeItem("token");
+      .then((res) => {
+        {
+          console.log(res);
+          localStorage.clear();
+          // localStorage.setItem("isLogin", false);
         }
       });
+    navigate("/");
+
     // axios.defaults.headers.post["Auth"] = token;
 
-    console.log(token);
+    // console.log(token);
   };
 
   return (
@@ -69,7 +64,7 @@ export default function Header_Common() {
           style={{ textAlign: "center" }}
         >
           <Link
-            to="/home"
+            to="/"
             style={{
               textDecoration: "inherit",
               color: "inherit",
@@ -86,15 +81,15 @@ export default function Header_Common() {
             <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
           </Link> */}
 
-        {/* <Link to="/Signup"> */}
-        <Button
-          style={{ backgroundColor: "orange", color: "black" }}
-          color="inherit"
-          onClick={onClick}
-        >
-          Log out
-        </Button>
-        {/* </Link> */}
+        
+          <Button
+            style={{ backgroundColor: "orange", color: "black" }}
+            color="inherit"
+            onClick={onClick}
+          >
+            Log out
+          </Button>
+        
       </Toolbar>
     </AppBar>
   );

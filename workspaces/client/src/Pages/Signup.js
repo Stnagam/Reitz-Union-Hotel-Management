@@ -147,8 +147,9 @@ const Signup = () => {
         })
         .then((res) => {
           console.log(res.data);
-          alert(res.data["message"]);
+          
           if (res.data["message"] === "Success") {
+            alert("Registered Successfully");
             navigate("/login");
           }
         });

@@ -14,18 +14,20 @@ import ResetPassword from './components/setNewPassword';
 import Booking from './Pages/Booking';
 // import { Rooms } from './Pages/Rooms';
 import Payment from './Pages/Payment';
+import Reservation from './Pages/Reservation';
+
 
 ReactDOM.render(
   <BrowserRouter>
   <Routes>
     {/* <Route path="/" element={<App />} /> */}
-    <Route path="/" element={<Home />} />
-    <Route path="/home" element={<Home />} />
-    <Route default path="/Login" element={<Login />} />
-    <Route path="/Signup" element={<Signup />} />
-    <Route path="/Booking" element={<Booking />} />
+    <Route path="/" element={<Home/>} />
+    <Route path="/reservation" element={<Reservation />} />
+    <Route default path="/login" element={<Login />} />
+    <Route path="/signup" element={<Signup />} />
+    <Route path="/booking" element={<Booking />} />
     {/* <Route path="/Rooms" element={<Rooms/>} /> */}
-    <Route path="/Payment" element={<Payment/>} />
+    <Route path="/payment" element={<Payment/>} />
     <Route path='/forgotpassword' element={<ForgotPassword />} />
     <Route path='/resetpassword' element={<ResetPassword />} />
   </Routes>

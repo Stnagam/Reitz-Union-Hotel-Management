@@ -12,6 +12,7 @@ import ForgotPassword from "../components/forgotPassword";
 export default function Login() {
   const storedJwt = localStorage.getItem("token");
   const [jwt, setJwt] = useState(storedJwt || null);
+
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -73,12 +74,15 @@ export default function Login() {
         // console.log(res.data['message']);
         // setMessage(res.data['message']);
         // alert(message);
-        console.log(res);
+        // console.log(res);
         if (res.data["message"] === "logged in") {
+          console.log(res.data);
           localStorage.setItem("token", res.data["token"]);
+          localStorage.setItem("email", res.data["email"]);
           setJwt(res.data["token"]);
+          localStorage.setItem("isLogin", true);
           setMessage(res.data["message"]);
-          navigate("/Booking");
+          navigate("/reservation");
         } else {
           alert(res.data["message"]);
         }
@@ -150,7 +154,7 @@ export default function Login() {
           )} */}
         </div>
       </Form>
-      <Footer />
+      <Footer style={{ position: "fixed" }}/>
     </div>
   );
 }

@@ -17,8 +17,10 @@ const Payment = () => {
     cvv: ''
   });
 
+
   const BookingID = '';
   const PaymentStatus = 'true';
+
 
   const { cardnum, zip, month, year, cvv } = data;
 
@@ -68,6 +70,7 @@ const Payment = () => {
 
   const onClick = () => {
     if (handleValidation()) {
+
       let token = localStorage.getItem('token');
 
       axios
@@ -93,6 +96,7 @@ const Payment = () => {
         });
 
       alert('Payment received successfull');
+
     }
   };
   return (
@@ -146,6 +150,7 @@ const Payment = () => {
             <select
               id='year'
               name='year'
+
               fluid
               label='year'
               onChange={e => onChange(e)}
@@ -167,8 +172,10 @@ const Payment = () => {
               <label>Expiration Month</label>
             </h4>
             <select
+
               id='month'
               name='month'
+
               fluid
               label='month'
               onChange={e => onChange(e)}

@@ -117,11 +117,13 @@ const Booking = () => {
                 <label htmlFor='adults'>Adults(13 and above)</label>
               </h4>
               <select
+
                 id='adults'
                 className='form-control'
                 name='adults'
                 style={{ width: '100%' }}
                 onChange={e => onChange(e)}
+
               >
                 <option>0</option>
                 <option>1</option>
@@ -144,10 +146,12 @@ const Booking = () => {
                 <label htmlFor='children'>Children(12 and below)</label>
               </h4>
               <select
+
                 id='children'
                 name='children'
                 style={{ width: '100%' }}
                 onChange={e => onChange(e)}
+
               >
                 <option>0</option>
                 <option>1</option>

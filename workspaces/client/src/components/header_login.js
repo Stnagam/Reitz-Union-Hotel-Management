@@ -39,7 +39,7 @@ export default function HeaderLogin() {
           style={{ textAlign: "center" }}
         >
           <Link
-            to="/home"
+            to="/"
             style={{
               textDecoration: "inherit",
               color: "inherit",
