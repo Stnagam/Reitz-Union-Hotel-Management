@@ -13,7 +13,7 @@ func TestForgotPasswordHandler(t *testing.T) {
 	//use mock db database name in .env file
 	utils.DBConnection()
 
-	var jsonStr1 = []byte(`{"email":"sheelaippili@ufl.edu","password":"sheelanew@ufl","otptgen":"DH7XUI"}`)
+	var jsonStr1 = []byte(`{"email":"sheelaippili@ufl.edu","password":"sheelanew@ufl","otptoken":"XSHZ3L"}`)
 
 	req, err := http.NewRequest("POST", "/signup", bytes.NewBuffer(jsonStr1))
 	if err != nil {
@@ -39,7 +39,7 @@ func TestForgotPasswordHandlerNoOtp(t *testing.T) {
 	//use mock db database name in .env file
 	utils.DBConnection()
 
-	var jsonStr1 = []byte(`{"email":"sheelaippili@ufl.edu","password":"usheelanew@ufl","otptgen":"tyufg"}`)
+	var jsonStr1 = []byte(`{"email":"sheelaippili@ufl.edu","password":"usheelanew@ufl","otptoken":"tyufg"}`)
 
 	req, err := http.NewRequest("POST", "/signup", bytes.NewBuffer(jsonStr1))
 	if err != nil {
@@ -65,7 +65,7 @@ func TestForgotPasswordHandlerInvalidRequest(t *testing.T) {
 	//use mock db database name in .env file
 	utils.DBConnection()
 
-	var jsonStr1 = []byte(`{"email":"newuser6@gmail.com","password":"user6@123","otptgen":"tyufg",""}`)
+	var jsonStr1 = []byte(`{"email":"newuser6@gmail.com","password":"user6@123","otptoken":"tyufg",""}`)
 
 	req, err := http.NewRequest("POST", "/signup", bytes.NewBuffer(jsonStr1))
 	if err != nil {
