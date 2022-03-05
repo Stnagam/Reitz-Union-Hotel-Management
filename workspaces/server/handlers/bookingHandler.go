@@ -6,17 +6,13 @@ import (
 	"math/rand"
 	"net/http"
 	"server/constants"
-	"server/utils"
-
-	//	"server/utils"
-
 	"server/models"
+	"server/utils"
 )
 
 func BookingHandler(w http.ResponseWriter, r *http.Request) {
 	currBooking := &models.Booking{}
 	json.NewDecoder(r.Body).Decode(currBooking)
-	
 
 	if currBooking.PaymentStatus == "false" {
 		var resp = map[string]interface{}{"message": "Payment Failed"}
@@ -26,9 +22,11 @@ func BookingHandler(w http.ResponseWriter, r *http.Request) {
 
 	if currBooking.PaymentStatus == "true" {
 
-		currBooking.BookingID = BookingIDGen(10)
+		currBooking.BookingID = BookingIDGen(12)
 		utils.DB.Create(currBooking)
+		ConfirmationEmailHandler(currBooking.Email, currBooking.BookingID)
 		json.NewEncoder(w).Encode(currBooking)
+
 		return
 
 	}

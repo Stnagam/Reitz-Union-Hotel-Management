@@ -6,8 +6,8 @@ import (
 
 type Booking struct {
 	gorm.Model
-	BookingID     string `gorm:"not null;unique" json:"bookingID"`
-	Email         string `gorm:"primary_key" json:"email"`
+	BookingID     string `gorm:"primary_key"  json:"bookingID"`
+	Email         string `json:"email"`
 	NoOfGuests    int32  `json:"noOfGuests"`
 	NoOfChildren  int32  `json:"noOfChildren"`
 	CheckIn       string `json:"checkin"`

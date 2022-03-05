@@ -17,10 +17,8 @@ const Payment = () => {
     cvv: ''
   });
 
-
   const BookingID = '';
   const PaymentStatus = 'true';
-
 
   const { cardnum, zip, month, year, cvv } = data;
 
@@ -70,7 +68,6 @@ const Payment = () => {
 
   const onClick = () => {
     if (handleValidation()) {
-
       let token = localStorage.getItem('token');
 
       axios
@@ -79,11 +76,11 @@ const Payment = () => {
           {
             BookingID,
             PaymentStatus,
-            Email: localStorage.getItem('email'),
-            NoOfGuest: localStorage.getItem('adults'),
-            NoOfChildren: localStorage.getItem('childrens'),
-            Chckin: localStorage.getItem('checkin'),
-            Checkout: localStorage.getItem('checkout')
+            Email: localStorage.getItem('email').toString(),
+            NoOfGuests: parseInt(localStorage.getItem('adults')),
+            NoOfChildren: parseInt(localStorage.getItem('childrens')),
+            CheckIn: localStorage.getItem('checkin'),
+            CheckOut: localStorage.getItem('checkout')
           },
           {
             headers: {
@@ -92,17 +89,16 @@ const Payment = () => {
           }
         )
         .then(res => {
-          console.log(res.data);
+          // console.log(res);
         });
 
       alert('Payment received successfull');
-
     }
   };
   return (
     <div className='payment'>
       <Header_Common />
-
+      <Form.Group className='radio'></Form.Group>
       <Form.Group>
         <div className='details'>
           <div className='card-number'>
@@ -150,7 +146,6 @@ const Payment = () => {
             <select
               id='year'
               name='year'
-
               fluid
               label='year'
               onChange={e => onChange(e)}
@@ -172,10 +167,8 @@ const Payment = () => {
               <label>Expiration Month</label>
             </h4>
             <select
-
               id='month'
               name='month'
-
               fluid
               label='month'
               onChange={e => onChange(e)}
