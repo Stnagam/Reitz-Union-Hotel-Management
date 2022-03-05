@@ -11,9 +11,14 @@ The idea is to provide a web-application to book rooms at Reitz Union hotel.
 - [All issues link](https://github.com/Stnagam/Reitz-Union-Hotel-Management/issues)
 
 ## Demo links for sprint2
+
 - End to end project Demo
 
+   https://youtu.be/E3EDsw6sr18
+
 - Unit tests demo
+  
+  https://youtu.be/EVFm--FtcWE
 
 
 ## UI Tasks achieved - (React js)
