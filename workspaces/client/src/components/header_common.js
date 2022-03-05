@@ -17,7 +17,9 @@ export default function Header_Common() {
   const onClick = (e) => {
     let token = localStorage.getItem("token");
 
-    const body = {};
+    const body = {
+      message: "kill token"
+    };
     axios
       .post("http://localhost:8080/auth/logout", body, {
         headers: {
@@ -41,7 +43,7 @@ export default function Header_Common() {
   return (
     <AppBar position="static">
       <Toolbar>
-        {/*Inside the IconButton, we 
+        {/*Inside the IconButton, we
            can render various icons*/}
         <IconButton
           size="large"
@@ -50,11 +52,11 @@ export default function Header_Common() {
           aria-label="menu"
           sx={{ mr: 2 }}
         >
-          {/*This is a simple Menu 
+          {/*This is a simple Menu
              Icon wrapped in Icon */}
           {/* <MenuIcon /> */}
         </IconButton>
-        {/* The Typography component applies 
+        {/* The Typography component applies
            default font weights and sizes */}
 
         <Typography
@@ -81,7 +83,7 @@ export default function Header_Common() {
             <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
           </Link> */}
 
-        
+
           <Button
             style={{ backgroundColor: "orange", color: "black" }}
             color="inherit"
@@ -89,7 +91,7 @@ export default function Header_Common() {
           >
             Log out
           </Button>
-        
+
       </Toolbar>
     </AppBar>
   );
