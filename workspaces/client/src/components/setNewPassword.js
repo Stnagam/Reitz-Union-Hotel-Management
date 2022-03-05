@@ -170,7 +170,7 @@ import { Link } from "react-router-dom";
             .post("http://localhost:8080/forgotpassword", {
               Email: email,
               Password: password,
-              OTP: parseInt(OTP),
+              Otptoken: parseInt(OTP),
               
             })
             .then((res) => {
