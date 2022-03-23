@@ -7,8 +7,6 @@ import (
 	"server/handlers"
 	"server/utils"
 
-	
-
 	h "github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
@@ -36,6 +34,9 @@ func Controller() {
 
 	s.HandleFunc("/logout", handlers.LogoutHandler).Methods("POST")
 	s.HandleFunc("/bookings", handlers.BookingHandler).Methods("POST")
+	s.HandleFunc("/customerReqs", handlers.CustomerReqs).Methods("POST")
+//	router.HandleFunc("/pendingReqs", handlers.GetPendingReqs).Methods("GET")
+	//	s.HandleFunc("/AdminReqs", handlers.AdminReqs ).Methods("POST")
 
 	cors(s)
 	log.Fatal(http.ListenAndServe(":8080", cors(router)))
