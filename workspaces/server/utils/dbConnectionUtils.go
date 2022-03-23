@@ -44,5 +44,6 @@ func DBConnection() {
 	DB.AutoMigrate(&models.User{})
 	DB.AutoMigrate(&models.Otptable{})
 	DB.AutoMigrate(&models.Booking{})
+	DB.AutoMigrate(&models.CustomerRequest{})
 
 }
