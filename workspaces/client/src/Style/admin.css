@@ -1,0 +1,21 @@
+.admin {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  justify-content: space-evenly;
+  justify-items: center;
+}
+
+.button {
+  color: black;
+  background-color: #ffa500;
+  margin-left: 100px;
+}
+
+/* .assign {
+  color: white;
+  background-color: #00ab66;
+} */
