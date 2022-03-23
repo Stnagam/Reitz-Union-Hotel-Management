@@ -15,6 +15,9 @@ Admin/Manager portal(For manager/Admin to manage the entire property)
 
 Group Members:
 
+Front end: Hetansh Narendrabhai Patel and Harsha Prakash Pakki
+Back end: Sai Teja Nagam  and Sheela Rani Ippili
+
 Harsha Prakash Pakki     @harshapakki
 
 Hetansh Narendrabhai Patel  @Hetanshpatel         
