@@ -38,6 +38,7 @@ export default function Header() {
             component="div" sx={{ flexGrow: 1 }} style={{textAlign: "center"}}>
             Reitz Union Hotel
           </Typography>
+          
 
           <Link
             to= "/login"
@@ -50,6 +51,12 @@ export default function Header() {
           >
           <Button style={{backgroundColor: "orange", color: "black"}} color="inherit" >SignUp</Button>
         </Link>
+
+        <Link
+            to= "/adminLogin"
+            >
+            <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Admin Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
   );
