@@ -15,6 +15,9 @@ import Booking from './Pages/Booking';
 // import { Rooms } from './Pages/Rooms';
 import Payment from './Pages/Payment';
 import Reservation from './Pages/Reservation';
+import CustomerHome from './Pages/CustomerHome.js';
+import AdminLogin from './Pages/AdminLogin';
+import Admin from './Pages/Admin';
 
 
 ReactDOM.render(
@@ -30,6 +33,9 @@ ReactDOM.render(
     <Route path="/payment" element={<Payment/>} />
     <Route path='/forgotpassword' element={<ForgotPassword />} />
     <Route path='/resetpassword' element={<ResetPassword />} />
+     <Route path="/CustomerHome" element={<CustomerHome/>} />
+     <Route path="/adminLogin" element={<AdminLogin/>} />
+     <Route exact path="/admin" element={<Admin/>} />
   </Routes>
    
 </BrowserRouter>,
