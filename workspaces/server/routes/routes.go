@@ -38,6 +38,9 @@ func Controller() {
 	s.HandleFunc("/pendingReqs", handlers.GetPendingReqs).Methods("GET")
 	s.HandleFunc("/assignedReqs", handlers.GetAssignedReqs).Methods("GET")
 	s.HandleFunc("/completedReqs", handlers.GetCompletedReqs).Methods("GET")
+	s.HandleFunc("/assignReqsToEmp", handlers.AssignReqs).Methods("POST")
+	s.HandleFunc("/markComplete", handlers.MarkCompleted).Methods("POST")
+
 
 	cors(s)
 	log.Fatal(http.ListenAndServe(":8080", cors(router)))
