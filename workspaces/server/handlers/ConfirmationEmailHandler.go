@@ -2,40 +2,28 @@ package handlers
 
 import (
 	"fmt"
-	"net/smtp"
 	"os"
+
+	"github.com/joho/godotenv"
+	"gopkg.in/gomail.v2"
 )
 
 func ConfirmationEmailHandler(mailid string, bid string) {
-	// sender data
-	from := os.Getenv("FromEmailAddr")
-	password := os.Getenv("SMTPpwd")
-	// receiver address
-	//toEmail := os.Getenv("ToEmailAddr") //
-	toEmail := mailid
-	fmt.Println(toEmail)
-	bookingid := bid
+	err := godotenv.Load()
+	if err != nil {
+		panic("Error loading .env file")
+	}
+	msg := gomail.NewMessage()
+	msg.SetHeader("From", os.Getenv("FROMEMAILADDRESS"))
+	msg.SetHeader("To", mailid)
+	msg.SetHeader("Subject", "Booking ID: "+bid+" - Reitz Union Hotel")
+	msg.SetBody("text/html", "Thanks for doing business with Reitz Union Hotel. <br><br>Your booking ID for your upcoming stay is: "+bid+"<br><br>Hope you have a pleasant stay at the Reitz Union Hotel.")
 
-	to := []string{toEmail}
-	// smtp - Simple Mail Transfer Protocol
-	host := "smtp.mail.yahoo.com"
-	port := "587"
-	address := host + ":" + port
-	// message
-
-	subject := "Booking confirmation: Reitz Union Hotel"
-	body := "Dear Customer\n,Your booking at the Reitz Union Hotel was successful!\nYour booking id is:\n"
-	body = body + bookingid
-	body = body + "\nRegards,\nReitz Union Hotel Team\n"
-
-	message := []byte(subject + body)
-	// athentication data
-	// func PlainAuth(identity, username, password, host string) Auth
-	auth := smtp.PlainAuth("", from, password, host)
-	// send mail
-	// func SendMail(addr string, a Auth, from string, to []string, msg []byte) error
-	error := smtp.SendMail(address, auth, from, to, message)
-	if error != nil {
-		fmt.Println("error:", error)
+	n := gomail.NewDialer("smtp.mail.yahoo.com", 587, os.Getenv("FROMEMAILADDRESS"), os.Getenv("SMTPPASSWORD"))
+	// Send the email
+	if err := n.DialAndSend(msg); err != nil {
+		fmt.Println("error:", err)
+	} else {
+		fmt.Println("mail has been sent")
 	}
 }
