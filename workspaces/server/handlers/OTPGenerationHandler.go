@@ -6,10 +6,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"net/smtp"
 	"os"
 	"server/models"
 	"server/utils"
+
+	"github.com/joho/godotenv"
+	"gopkg.in/gomail.v2"
 )
 
 //function to generate otp number
@@ -62,34 +64,24 @@ func OTPGenerationHandler(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(err)
 		return
 	} else {
-		//send email to user email id with otp
-		// sender data
-		from := os.Getenv("FromEmailAddr")
-		password := os.Getenv("SMTPpwd")
-		// receiver address
-		//toEmail := os.Getenv("ToEmailAddr")
-		//to := []string{toEmail}
-		// smtp - Simple Mail Transfer Protocol
-		host := "smtp.mail.yahoo.com"
-		port := "587"
-		address := host + ":" + port
-		// message
-		subject := "Reset password OTP - reitz Union Hotel\n"
-		body := "Dear Customer,Your request for reset password has been received!Your otp to reset the password is:"
-		body = body + otp
-		message := []byte(subject + body)
-		// athentication data
-		// func PlainAuth(identity, username, password, host string) Auth
-		auth := smtp.PlainAuth("", from, password, host)
-		// send mail
-		// func SendMail(addr string, a Auth, from string, to []string, msg []byte) error
-		fmt.Println(otp)
-		error := smtp.SendMail(address, auth, from, to, message)
-		if error != nil {
-			fmt.Println("error:", error)
-			return
+		err := godotenv.Load()
+		if err != nil {
+			panic("Error loading .env file")
 		}
-		var resp = map[string]interface{}{"message": "successfully got the emailid"}
-		json.NewEncoder(w).Encode(resp)
+		msg := gomail.NewMessage()
+		msg.SetHeader("From", os.Getenv("FROMEMAILADDRESS"))
+		msg.SetHeader("To", user.Email)
+		msg.SetHeader("Subject", "OTP to reset password- Reitz Union Hotel")
+		msg.SetBody("text/html", "Dear Customer,<br><br>Your request for reset password has been received!<br><br>Your otp to reset the password is: "+otp)
+
+		n := gomail.NewDialer("smtp.mail.yahoo.com", 587, os.Getenv("FROMEMAILADDRESS"), os.Getenv("SMTPPASSWORD"))
+		// Send the email
+		if err := n.DialAndSend(msg); err != nil {
+			fmt.Println("error:", err)
+		} else {
+			var resp = map[string]interface{}{"message": "successfully got the emailid"}
+			json.NewEncoder(w).Encode(resp)
+		}
+
 	}
 }
