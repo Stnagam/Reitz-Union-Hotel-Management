@@ -8,8 +8,11 @@ import (
 )
 
 func AssignReqs(w http.ResponseWriter, r *http.Request) {
+
 	incomingCR := &models.CustomerRequest{}
-	utils.DB.Model(&models.CustomerRequest{}).Where("RequestID = ?", incomingCR.RequestID).Update("Status", "Assigned")
+	json.NewDecoder(r.Body).Decode(incomingCR)
+	utils.DB.Model(&models.CustomerRequest{}).Where("request_id = ?", incomingCR.RequestID).Update("status", "Assigned")
+	utils.DB.Model(&models.CustomerRequest{}).Where("request_id = ?", incomingCR.RequestID).Update("employeeID", incomingCR.EmployeeID)
 	var resp = map[string]interface{}{"message": "Request Status Changed to Assigned"}
 	json.NewEncoder(w).Encode(resp)
 
