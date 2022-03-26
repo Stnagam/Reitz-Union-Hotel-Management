@@ -2,12 +2,16 @@ module server
 
 go 1.17
 
-require github.com/jinzhu/gorm v1.9.16
+require (
+	github.com/jinzhu/gorm v1.9.16
+	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df
+)
 
 require (
 	github.com/felixge/httpsnoop v1.0.1 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.4 // indirect
+	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
 )
 
 require (
@@ -15,9 +19,7 @@ require (
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
 	github.com/joho/godotenv v1.4.0
-	github.com/julienschmidt/httprouter v1.3.0
 	github.com/lib/pq v1.1.1 // indirect
-	github.com/xhit/go-simple-mail v2.2.2+incompatible
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292
 	gorm.io/gorm v1.22.5
 )

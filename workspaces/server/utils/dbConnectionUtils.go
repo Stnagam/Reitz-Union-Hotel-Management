@@ -43,6 +43,7 @@ func DBConnection() {
 	// Make migrations to the database if they haven't been made already
 	DB.AutoMigrate(&models.User{})
 	DB.AutoMigrate(&models.Otptable{})
+	DB.AutoMigrate(&models.Room{})
 	DB.AutoMigrate(&models.Booking{})
 	DB.AutoMigrate(&models.CustomerRequest{})
 

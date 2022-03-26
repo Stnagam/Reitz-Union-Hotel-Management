@@ -25,13 +25,14 @@ func Controller() {
 
 	router.HandleFunc("/signup", handlers.SignUpHandler).Methods("POST")
 	router.HandleFunc("/login", handlers.LoginHandler).Methods("POST")
-	router.HandleFunc("/otpgeneration", handlers.OTPGenerationHandler).Methods("POST")
-	router.HandleFunc("/forgotpassword", handlers.ForgotPasswordHandler).Methods("POST")
 
 	s := router.PathPrefix("/auth").Subrouter()
 	s.Use(utils.JwtVerify)
 
 	s.HandleFunc("/logout", handlers.LogoutHandler).Methods("POST")
+	s.HandleFunc("/otpgeneration", handlers.OTPGenerationHandler).Methods("POST")
+	s.HandleFunc("/forgotpassword", handlers.ForgotPasswordHandler).Methods("POST")
+	s.HandleFunc("/availablerooms", handlers.AvailableRoomsHandler).Methods("GET")
 	s.HandleFunc("/bookings", handlers.BookingHandler).Methods("POST")
 	s.HandleFunc("/customerReqs", handlers.CustomerReqs).Methods("POST")
 	s.HandleFunc("/pendingReqs", handlers.GetPendingReqs).Methods("GET")
