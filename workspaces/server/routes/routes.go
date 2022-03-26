@@ -1,7 +1,6 @@
 package routes
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"server/handlers"
@@ -41,9 +40,7 @@ func Controller() {
 	s.HandleFunc("/assignReqsToEmp", handlers.AssignReqs).Methods("POST")
 	s.HandleFunc("/markComplete", handlers.MarkCompleted).Methods("POST")
 
-
 	cors(s)
 	log.Fatal(http.ListenAndServe(":8080", cors(router)))
 
-	fmt.Print("Server is Up!")
 }
