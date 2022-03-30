@@ -7,6 +7,7 @@ import (
 	"encoding/base32"
 	"encoding/binary"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"server/models"
 	"server/utils"
@@ -36,25 +37,70 @@ func BookingHandler(w http.ResponseWriter, r *http.Request) {
 
 	//if its a succesful payment request
 	if currBooking.PaymentStatus == "true" {
+
 		//currBooking.BookingID, err = BookingIDGen(12)
 		data := "dummySECRETdummy"
 		secret := string(data)
 		id := BookingIDGen(secret)
 		currBooking.BookingID = id
+
+		//parsing time from string to type time
+		const layout = "2006-01-02"
+		in, _ := time.Parse(layout, currBooking.CheckInDummy)
+		out, _ := time.Parse(layout, currBooking.CheckOutDummy)
+		currBooking.CheckIn = in.Add(time.Hour * 4)
+		currBooking.CheckOut = out.Add(time.Hour * 4)
+
 		//var eachRoom uint
 		//save booking info with room room info in the booking table database
 		//assign rooms to the booking (each booking id can have multiple rooms assigned to it)
+
 		if err == nil {
+
+			//TO-DO: depending on executive or deluxe type of room selected, extract only those rooms numbers from reserved rooms
+
+			var getRoomIds models.Room
+			result := []uint{}
+
+			if currBooking.TypeOfRoom == "executive" {
+				rows, err := utils.DB.Model(&models.Room{}).Where("type_of_room = ?", "executive").Select("room_id").Rows()
+				if err != nil {
+					json.NewEncoder(w).Encode(err)
+					fmt.Print("error occured in select statement to get room ids of executive")
+					return
+				} else {
+					defer rows.Close()
+					for rows.Next() {
+						utils.DB.ScanRows(rows, &getRoomIds)
+						result = append(result, getRoomIds.RoomID)
+					}
+				}
+			} else if currBooking.TypeOfRoom == "deluxe" {
+				rows, err := utils.DB.Model(&models.Room{}).Where("type_of_room = ?", "deluxe").Select("room_id").Rows()
+				if err != nil {
+					json.NewEncoder(w).Encode(err)
+					fmt.Print("error occured in select statement to get room ids of deluxe")
+					return
+				} else {
+					defer rows.Close()
+					for rows.Next() {
+						utils.DB.ScanRows(rows, &getRoomIds)
+						result = append(result, getRoomIds.RoomID)
+					}
+				}
+			}
+
 			perRoom := strings.Split(currBooking.ReserveRooms, ",")
 			for _, value := range perRoom {
 				eachRoom, err := strconv.ParseUint(value, 10, 64)
 				if err == nil {
 					currBooking.RoomID = uint(eachRoom)
-					//fmt.Println(currBooking.BookingID)
-					//fmt.Println(currBooking.RoomID)
-					utils.DB.Create(currBooking)
+					if Find(result, int(currBooking.RoomID)) {
+						utils.DB.Create(currBooking)
+					}
 				}
 			}
+			fmt.Println(currBooking.BookingID)
 			ConfirmationEmailHandler(currBooking.Email, currBooking.BookingID)
 			json.NewEncoder(w).Encode(currBooking)
 			return
@@ -62,10 +108,19 @@ func BookingHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+//function to find if a room assigned is an executive room or deluxe room
+func Find(slice []uint, sliceItem int) bool {
+	for _, item := range slice {
+		if int(item) == sliceItem {
+			return true
+		}
+	}
+	return false
+}
+
 //Panic if error is not nil
 func check(e error) {
 	if e != nil {
-		//fmt.Println(e)
 		panic(e)
 	}
 }
@@ -118,7 +173,7 @@ func getHOTPToken(secret string, interval int64) string {
 }
 
 func BookingIDGen(secret string) string {
-	//The TOTP token is just a HOTP token seeded with every 30 seconds.
-	interval := time.Now().Unix() / 120
+	//The TOTP token is just a HOTP token seeded with every 05 seconds.
+	interval := time.Now().Unix() / 5
 	return getHOTPToken(secret, interval)
 }
