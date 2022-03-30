@@ -6,7 +6,7 @@ type CustomerRequest struct {
 	gorm.Model
 	RequestID   string `gorm:"primary_key" json:"requestID"`
 	EmployeeID  string `json:"employeeID"`
-	RoomID      int    `json:"roomNumber"`
+	RoomID      uint   `json:"roomNumber"`
 	Email       string `json:"email"`
 	RequestType string `json:"requestType"`
 	Comment     string `json:"comment"`
