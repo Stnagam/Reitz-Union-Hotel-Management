@@ -19,11 +19,13 @@ const Payment = () => {
 
   const BookingID = '';
   const PaymentStatus = 'true';
+  let isDeluxe = false;
+
 
   const { cardnum, zip, month, year, cvv } = data;
 
   const onChange = e => setData({ ...data, [e.target.name]: e.target.value });
-
+    isDeluxe = localStorage.getItem('isDeluxe');
   const handleValidation = () => {
     let errors = {};
     let formIsValid = true;
@@ -66,21 +68,36 @@ const Payment = () => {
     return formIsValid;
   };
 
+  // if(isDeluxe) {
   const onClick = () => {
     if (handleValidation()) {
       let token = localStorage.getItem('token');
-
+      if(isDeluxe){
       axios
         .post(
           'http://localhost:8080/auth/bookings',
           {
-            BookingID,
-            PaymentStatus,
-            Email: localStorage.getItem('email').toString(),
-            NoOfGuests: parseInt(localStorage.getItem('adults')),
-            NoOfChildren: parseInt(localStorage.getItem('childrens')),
-            CheckIn: localStorage.getItem('checkin'),
-            CheckOut: localStorage.getItem('checkout')
+            // bookingID: localStorage.getItem('bookingID').toString() ,
+            // PaymentStatus: true,
+            // Email: localStorage.getItem('email').toString(),
+            // NoOfGuests: parseInt(localStorage.getItem('adults')),
+            // NoOfChildren: parseInt(localStorage.getItem('childrens')),
+            // CheckIn: localStorage.getItem('checkin'),
+            // CheckOut: localStorage.getItem('checkout')
+            bookingID: localStorage.getItem('bookingID').toString(),
+            roomID: null,
+            typeOfRoom: "",
+            noOfRoomsToBook: parseInt(localStorage.getItem('noOfRoomsToBook')),
+            email: localStorage.getItem('email'),
+            noOfGuests: parseInt(localStorage.getItem('adults')),
+            noOfChildren: parseInt(localStorage.getItem('children')),
+            checkInDummy: localStorage.getItem('checkin'),
+            checkOutDummy: localStorage.getItem('checkout'),
+            checkin: null,
+            checkout: null,
+            amount: localStorage.getItem('deluxeAmount'),
+            paymentStatus: true,
+            reserveRooms: localStorage.getItem('reserveRooms')
           },
           {
             headers: {
@@ -93,7 +110,49 @@ const Payment = () => {
         });
 
       alert('Payment received successfull');
+      }
+    
+      if(!isDeluxe){
+      axios
+        .post(
+          'http://localhost:8080/auth/bookings',
+          {
+            // bookingID: localStorage.getItem('bookingID').toString() ,
+            // PaymentStatus: true,
+            // Email: localStorage.getItem('email').toString(),
+            // NoOfGuests: parseInt(localStorage.getItem('adults')),
+            // NoOfChildren: parseInt(localStorage.getItem('childrens')),
+            // CheckIn: localStorage.getItem('checkin'),
+            // CheckOut: localStorage.getItem('checkout')
+            bookingID: localStorage.getItem('bookingID').toString(),
+            roomID: null,
+            typeOfRoom: "",
+            noOfRoomsToBook: parseInt(localStorage.getItem('noOfRoomsToBook')),
+            email: localStorage.getItem('email'),
+            noOfGuests: parseInt(localStorage.getItem('adults')),
+            noOfChildren: parseInt(localStorage.getItem('children')),
+            checkInDummy: localStorage.getItem('checkin'),
+            checkOutDummy: localStorage.getItem('checkout'),
+            checkin: null,
+            checkout: null,
+            amount: localStorage.getItem('executiveAmount'),
+            paymentStatus: true,
+            reserveRooms: localStorage.getItem('reserveRooms')
+          },
+          {
+            headers: {
+              'x-access-token': token
+            }
+          }
+        )
+        .then(res => {
+          // console.log(res);
+        });
+
+      alert('Payment received successfull');
+      }
     }
+    // }
   };
   return (
     <div className='payment'>
