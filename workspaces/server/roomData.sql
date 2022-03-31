@@ -1,0 +1,2 @@
+INSERT INTO ROOMS (room_id,type_of_room,price) VALUES ('101','executive','200'),('102','executive','200'),('103','executive','200'),('104','executive','200'),('105','executive','200'),('106','executive','200'),('107','executive','200'),('108','executive','200'),('109','executive','200'),('110','executive','200'),('111','deluxe','140'),('112','deluxe','140'),('113','deluxe','140'),('114','deluxe','140'),('115','deluxe','140'),('116','deluxe','140'),('117','deluxe','140'),('118','deluxe','140'),('119','deluxe','140'),('120','deluxe','140');
+SELECT * FROM ROOMS;
