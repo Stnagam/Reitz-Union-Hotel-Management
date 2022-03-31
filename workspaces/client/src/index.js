@@ -16,8 +16,9 @@ import Booking from './Pages/Booking';
 import Payment from './Pages/Payment';
 import Reservation from './Pages/Reservation';
 import CustomerHome from './Pages/CustomerHome.js';
-import AdminLogin from './Pages/AdminLogin';
+// import AdminLogin from './Pages/AdminLogin';
 import Admin from './Pages/Admin';
+import GetRooms from './Pages/Rooms'
 
 
 ReactDOM.render(
@@ -34,8 +35,9 @@ ReactDOM.render(
     <Route path='/forgotpassword' element={<ForgotPassword />} />
     <Route path='/resetpassword' element={<ResetPassword />} />
      <Route path="/CustomerHome" element={<CustomerHome/>} />
-     <Route path="/adminLogin" element={<AdminLogin/>} />
+     {/* <Route path="/adminLogin" element={<AdminLogin/>} /> */}
      <Route exact path="/admin" element={<Admin/>} />
+     <Route exact path="/rooms" element={<GetRooms/>} />
   </Routes>
    
 </BrowserRouter>,
