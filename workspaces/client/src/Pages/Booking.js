@@ -20,7 +20,7 @@ const Booking = () => {
   });
 
   const [errors, seterrors] = useState([]);
-
+  let token = localStorage.getItem('token');
   const handleValidation = () => {
     let errors = {};
     let formIsValid = true;
@@ -78,6 +78,11 @@ const Booking = () => {
       amount: "",
       paymentStatus: "",
       reserveRooms: ""
+      },           
+      {
+        headers: {
+          'x-access-token': token
+        }
       })
       .then((res) => {
         console.log(res.data('message'));
