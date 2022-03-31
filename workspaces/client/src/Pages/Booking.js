@@ -59,11 +59,11 @@ const Booking = () => {
 
     if (handleValidation()) {
       localStorage.setItem('adults', adults);
-      localStorage.setItem('childrens', children);
+      localStorage.setItem('children', children);
       localStorage.setItem('checkin', checkin);
       localStorage.setItem('checkout', checkout);
       axios
-      .post("http://localhost:8080/bookings", {
+      .post("http://localhost:8080/auth/availablerooms", {
       bookingID: "",
       roomID: null,
       typeOfRoom: "",
@@ -84,16 +84,24 @@ const Booking = () => {
           'x-access-token': token
         }
       })
-      .then((res) => {
-        console.log(res.data('message'));
-        if (res.data["message"] !== "no rooms available in the specified time period") {
-        localStorage.setItem('bookingID', res.data('bookingID'));
-        localStorage.setItem('deluxeAvailability', res.data('deluxeAvailability'));
-        localStorage.setItem('executiveAvailability', res.data('executiveAvailability'));
-        localStorage.setItem('deluxeAmount', res.data('deluxeAmount'));
-        localStorage.setItem('executiveAmount', res.data('executiveAmount'));
-        localStorage.setItem('reserveRooms', res.data('reserveRooms'));
-        localStorage.setItem('noofroomstobook', res.data('noofroomstobook'));
+      .then(res => {
+        console.log(res);
+        console.log(res.data.executiveAmount);
+        if (res.data.message !== "no rooms available in the specified time period") {
+        // localStorage.setItem('bookingID', res.data.bookingID);
+        localStorage.setItem('deluxeAvailability', res.data.deluxeAvailability);
+        localStorage.setItem('executiveAvailability', res.data.executiveAvailability);
+        localStorage.setItem('deluxeAmount', res.data.deluxeAmount);
+        localStorage.setItem('executiveAmount', res.data.executiveAmount);
+        localStorage.setItem('reserveRooms', res.data.reserveRooms);
+        localStorage.setItem('noofroomstobook', res.data.noofroomstobook);
+        // localStorage.setItem["bookingID"] = res.data.bookingID;
+        // localStorage.setItem["deluxeAvailability"] = res.data.deluxeAvailability;
+        // localStorage.setItem["executiveAvailability"] = res.data.executiveAvailability;
+        // localStorage.setItem["deluxeAmount"] = res.data.deluxeAmount;
+        // localStorage.setItem["executiveAmount"] = res.data.executiveAmount;
+        // localStorage.setItem["reserveRooms"] = res.data.reserveRooms;
+        // localStorage.setItem["noofroomstobook"] = res.data.noofroomstobook;
         }
       });
       console.log(filterdata);

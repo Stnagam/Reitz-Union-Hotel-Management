@@ -84,9 +84,9 @@ const Payment = () => {
             // NoOfChildren: parseInt(localStorage.getItem('childrens')),
             // CheckIn: localStorage.getItem('checkin'),
             // CheckOut: localStorage.getItem('checkout')
-            bookingID: localStorage.getItem('bookingID').toString(),
+            bookingID: "",
             roomID: null,
-            typeOfRoom: "",
+            typeOfRoom: "deluxe",
             noOfRoomsToBook: parseInt(localStorage.getItem('noOfRoomsToBook')),
             email: localStorage.getItem('email'),
             noOfGuests: parseInt(localStorage.getItem('adults')),
@@ -96,7 +96,7 @@ const Payment = () => {
             checkin: null,
             checkout: null,
             amount: localStorage.getItem('deluxeAmount'),
-            paymentStatus: true,
+            paymentStatus: "true",
             reserveRooms: localStorage.getItem('reserveRooms')
           },
           {
@@ -106,7 +106,7 @@ const Payment = () => {
           }
         )
         .then(res => {
-          // console.log(res);
+           console.log(res);
         });
 
       alert('Payment received successfull');
@@ -124,10 +124,10 @@ const Payment = () => {
             // NoOfChildren: parseInt(localStorage.getItem('childrens')),
             // CheckIn: localStorage.getItem('checkin'),
             // CheckOut: localStorage.getItem('checkout')
-            bookingID: localStorage.getItem('bookingID').toString(),
+            bookingID: "",
             roomID: null,
-            typeOfRoom: "",
-            noOfRoomsToBook: parseInt(localStorage.getItem('noOfRoomsToBook')),
+            typeOfRoom: "executive",
+            noOfRoomsToBook: parseInt(localStorage.getItem('noofroomstobook')),
             email: localStorage.getItem('email'),
             noOfGuests: parseInt(localStorage.getItem('adults')),
             noOfChildren: parseInt(localStorage.getItem('children')),
@@ -136,7 +136,7 @@ const Payment = () => {
             checkin: null,
             checkout: null,
             amount: localStorage.getItem('executiveAmount'),
-            paymentStatus: true,
+            paymentStatus: "true",
             reserveRooms: localStorage.getItem('reserveRooms')
           },
           {
@@ -146,7 +146,7 @@ const Payment = () => {
           }
         )
         .then(res => {
-          // console.log(res);
+         console.log(res);
         });
 
       alert('Payment received successfull');
