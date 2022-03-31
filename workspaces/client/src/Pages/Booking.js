@@ -62,7 +62,38 @@ const Booking = () => {
       localStorage.setItem('childrens', children);
       localStorage.setItem('checkin', checkin);
       localStorage.setItem('checkout', checkout);
-      navigate('/payment');
+      axios
+      .post("http://localhost:8080/bookings", {
+      bookingID: "",
+      roomID: null,
+      typeOfRoom: "",
+      noOfRoomsToBook: null,
+      email: localStorage.getItem('email'),
+      noOfGuests: adults,
+      noOfChildren: children,
+      checkInDummy: checkin,
+      checkOutDummy: checkout,
+      checkin: null,
+      checkout: null,
+      amount: "",
+      paymentStatus: "",
+      reserveRooms: ""
+      })
+      .then((res) => {
+        console.log(res.data('message'));
+        if (res.data["message"] !== "no rooms available in the specified time period") {
+        localStorage.setItem('bookingID', res.data('bookingID'));
+        localStorage.setItem('deluxeAvailability', res.data('deluxeAvailability'));
+        localStorage.setItem('executiveAvailability', res.data('executiveAvailability'));
+        localStorage.setItem('deluxeAmount', res.data('deluxeAmount'));
+        localStorage.setItem('executiveAmount', res.data('executiveAmount'));
+        localStorage.setItem('reserveRooms', res.data('reserveRooms'));
+        localStorage.setItem('noofroomstobook', res.data('noofroomstobook'));
+        }
+      });
+      console.log(filterdata);
+      console.log(localStorage.getItem('email'));
+      navigate('/rooms');
     }
   };
   return (
