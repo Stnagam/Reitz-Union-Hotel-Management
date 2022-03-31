@@ -32,7 +32,7 @@ func Controller() {
 	s.HandleFunc("/logout", handlers.LogoutHandler).Methods("POST")
 	s.HandleFunc("/otpgeneration", handlers.OTPGenerationHandler).Methods("POST")
 	s.HandleFunc("/forgotpassword", handlers.ForgotPasswordHandler).Methods("POST")
-	s.HandleFunc("/availablerooms", handlers.AvailableRoomsHandler).Methods("GET")
+	s.HandleFunc("/availablerooms", handlers.AvailableRoomsHandler).Methods("POST")
 	s.HandleFunc("/bookings", handlers.BookingHandler).Methods("POST")
 	s.HandleFunc("/customerReqs", handlers.CustomerReqs).Methods("POST")
 	s.HandleFunc("/pendingReqs", handlers.GetPendingReqs).Methods("GET")
