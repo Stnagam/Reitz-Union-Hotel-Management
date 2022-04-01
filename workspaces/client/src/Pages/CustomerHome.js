@@ -23,8 +23,8 @@ const CustomerHome = () => {
       <Header_Common />
       <div>
         <h3>Currnet booking</h3>
-        {(date == "23-03-2022") && <Tile isCurrent={true} />}
-        {/* {(date == "21-03-2022") || "No current booking" } */}
+        {(date == "01-04-2022") && <Tile isCurrent={true} />}
+        {(date == "01-04-2022") || "No current booking" }
       </div>
       <div>
         <h3>Upcoming booking</h3>
