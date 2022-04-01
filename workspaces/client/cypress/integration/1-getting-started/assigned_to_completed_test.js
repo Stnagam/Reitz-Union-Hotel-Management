@@ -1,5 +1,3 @@
-import { Button } from "react-bootstrap";
-
 describe("Test", function () {
   it("AssignedToCompleted", function () {
     cy.visit("http://localhost:3000/");
