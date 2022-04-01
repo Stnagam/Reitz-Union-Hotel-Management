@@ -17,6 +17,13 @@ import (
 
 func CustomerReqs(w http.ResponseWriter, r *http.Request) {
 	IncomingReq := &models.CustomerRequest{}
+	err := json.NewDecoder(r.Body).Decode(IncomingReq)
+	//check if a valid request has been sent from front end
+	if err != nil {
+		var resp = map[string]interface{}{"status": false, "message": "Invalid json request"}
+		json.NewEncoder(w).Encode(resp)
+		return
+	}
 	json.NewDecoder(r.Body).Decode(IncomingReq)
 	data := "dummySECRETdummy"
 	secret := string(data)
