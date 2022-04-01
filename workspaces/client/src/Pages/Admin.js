@@ -34,21 +34,21 @@ const Admin = () => {
         console.log(pendingData);
       });
   };
-  // const onClick2 = () => {
-  //   setCompleted(false);
-  //   setPending(false);
-  //   setAssigned(true);
-  //   axios
-  //     .get("http://localhost:8080/auth/assignedReqs", {
-  //       headers: {
-  //         "x-access-token": token,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       setAssignedData(res.data);
-  //       console.log(assignedData);
-  //     });
-  // };
+  const onClick2 = () => {
+    setCompleted(false);
+    setPending(false);
+    setAssigned(true);
+    axios
+      .get("http://localhost:8080/auth/assignedReqs", {
+        headers: {
+          "x-access-token": token,
+        },
+      })
+      .then((res) => {
+        setAssignedData(res.data);
+        console.log(assignedData);
+      });
+  };
   // const onClick3 = () => {
   //   setPending(false);
   //   setAssigned(false);
@@ -190,7 +190,7 @@ const Admin = () => {
         </button>
       </div>
 
-      {/* <Pending pending={pending} pendingData={pendingData} />
+       {/* <Pending pending={pending} pendingData={pendingData} />
       <Assigned assigned={assigned} assignedData={assignedData} /> */}
       {pending && (
         <div>
@@ -235,7 +235,7 @@ const Admin = () => {
           })}
         </div>
       )}
-{/* 
+
       {assigned && (
         <div>
           <h3>Assigned Request</h3>
@@ -269,6 +269,7 @@ const Admin = () => {
         </div>
       )}
 
+{/* 
       {completed && (
         <div>
           <h3>Completed Request</h3>
