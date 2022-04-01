@@ -1,5 +1,6 @@
 import { Input, Select } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 import Header_Common from '../components/header_common.js';
@@ -8,6 +9,7 @@ import Header from '../default/headerHome.js';
 import '../Style/payment.css';
 
 const Payment = () => {
+   const navigate = useNavigate();
   const [errors, seterrors] = useState([]);
   const [data, setData] = useState({
     cardnum: '',
@@ -107,9 +109,11 @@ const Payment = () => {
         )
         .then(res => {
            console.log(res);
+           
         });
 
       alert('Payment received successfull');
+      
       }
     
       if(!isDeluxe){
@@ -152,6 +156,7 @@ const Payment = () => {
       alert('Payment received successfull');
       }
     }
+    navigate("/CustomerHome");
     // }
   };
   return (

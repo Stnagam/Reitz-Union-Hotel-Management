@@ -58,6 +58,7 @@ const Request = () => {
           </select>
           <input
             type="text"
+            name="comment"
             placeholder="Comment"
             onChange={(e) => setComment(e.target.value)}
           ></input>

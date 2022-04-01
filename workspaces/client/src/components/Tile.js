@@ -16,7 +16,7 @@ const Tile = (props) => {
         <h4>Deluxe room</h4>
         <img variant="top" s src={img} style={{ width: "80%" }} />
         <Card.Body>
-          <p>Booking Date: 15-05-2022</p>
+          <p>Booking Date: </p>
 
           {props.isCurrent && (
             <button type="submit" style={{"background-color":"#ffa500"}} onClick={onClick}>
