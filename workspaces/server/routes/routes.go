@@ -32,7 +32,7 @@ func Controller() {
 	s.HandleFunc("/logout", handlers.LogoutHandler).Methods("POST")
 	s.HandleFunc("/otpgeneration", handlers.OTPGenerationHandler).Methods("POST")
 	s.HandleFunc("/forgotpassword", handlers.ForgotPasswordHandler).Methods("POST")
-	s.HandleFunc("/availablerooms", handlers.AvailableRoomsHandler).Methods("GET")
+	s.HandleFunc("/availablerooms", handlers.AvailableRoomsHandler).Methods("POST")
 	s.HandleFunc("/bookings", handlers.BookingHandler).Methods("POST")
 	s.HandleFunc("/customerReqs", handlers.CustomerReqs).Methods("POST")
 	s.HandleFunc("/pendingReqs", handlers.GetPendingReqs).Methods("GET")
@@ -40,6 +40,7 @@ func Controller() {
 	s.HandleFunc("/completedReqs", handlers.GetCompletedReqs).Methods("GET")
 	s.HandleFunc("/assignReqsToEmp", handlers.AssignReqs).Methods("POST")
 	s.HandleFunc("/markComplete", handlers.MarkCompleted).Methods("POST")
+	s.HandleFunc("/deleteCompleted", handlers.DeleteCompleted).Methods("POST")
 
 	cors(s)
 	log.Fatal(http.ListenAndServe(":8080", cors(router)))
