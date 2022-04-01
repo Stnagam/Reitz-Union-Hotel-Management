@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 
@@ -6,38 +7,54 @@ const Request = () => {
 
   const onClick = (e) => {
     var select = document.getElementById("requests");
-    var value = select.options[select.selectedIndex].value;
+    var reqValue = select.options[select.selectedIndex].value;
+    let token = localStorage.getItem("token");
     e.preventDefault();
-    // axios
-    //   .post("http://localhost:8080/requests", {
-    //     RequestType: "Pending",
-    //     Email: localStorage.getItem("Email"),
-    //     Comment:,
-    //     Status: ,
-    //   })
-    //   .then((res) => {
+    axios
+      .post(
+        "http://localhost:8080/auth/customerReqs",
+        {
+          // RequestType: "Pending",
+          // Email: localStorage.getItem("Email"),
+          // Comment: comment,
+          // Status: "Pending",
 
-    //     if (res.data["message"] === "logged in") {
-
-    //       // localStorage.setItem("email", res.data["email"]);
-
-    //       setMessage(res.data["message"]);
-    //       navigate("/reservation");
-    //     } else {
-    //       alert(res.data["message"]);
-    //     }
-    //   });
+          Email: localStorage.getItem("email"),
+          RequestType : reqValue,
+          Comment: comment,
+          Status: "Pending",
+        },
+        {
+          headers: {
+            "x-access-token": token,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        if (res.data["message"] === "Request Raised") {
+          alert("Request is raised");
+          // navigate("/");
+        } else {
+          alert(res.data["message"]);
+        }
+      });
     // alert("Request sent successfully")
-    console.log({ value });
   };
   return (
     <div>
       <div style={{ width: "500px" }}>
         <div>
           <select id="requests">
-            <option value="Cleaning">Cleaning: Make a request for room cleaning</option>
-            <option value="Food menu">Food menu: Make a request to see food menu</option>
-            <option value="Order food">Order food: Make a request to order food</option>
+            <option value="Cleaning">
+              Cleaning: Make a request for room cleaning
+            </option>
+            <option value="Food menu">
+              Food menu: Make a request to see food menu
+            </option>
+            <option value="Order food">
+              Order food: Make a request to order food
+            </option>
           </select>
           <input
             type="text"
