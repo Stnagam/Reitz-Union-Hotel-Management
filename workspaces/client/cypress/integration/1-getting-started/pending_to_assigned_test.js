@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe('Test', function () {
   it('pendingToAssigned', function () {
     cy.visit('http://localhost:3000/');
