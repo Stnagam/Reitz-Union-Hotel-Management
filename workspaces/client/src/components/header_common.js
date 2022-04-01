@@ -10,6 +10,13 @@ import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
+
+
+// import { Avatar } from '@material-ui/core';
+
+// import { Avatar } from "react-native-paper";
+
 export default function Header_Common() {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -18,7 +25,7 @@ export default function Header_Common() {
     let token = localStorage.getItem("token");
 
     const body = {
-      message: "kill token"
+      message: "kill token",
     };
     axios
       .post("http://localhost:8080/auth/logout", body, {
@@ -82,16 +89,17 @@ export default function Header_Common() {
             >
             <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
           </Link> */}
+        
 
+        {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
 
-          <Button
-            style={{ backgroundColor: "orange", color: "black" }}
-            color="inherit"
-            onClick={onClick}
-          >
-            Log out
-          </Button>
-
+        <Button
+          style={{ backgroundColor: "orange", color: "black" }}
+          color="inherit"
+          onClick={onClick}
+        >
+          Log out
+        </Button>
       </Toolbar>
     </AppBar>
   );
