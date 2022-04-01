@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, CardGroup } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../default/header';
-import Footer from '../default/footer';
 import '../Style/booking.css';
 import Header_Common from '../components/header_common';
 import { orange } from '@mui/material/colors';
 import Card from "react-bootstrap/Card"
 import room1 from '../images/room1.png'
 import room2 from '../images/room2.png'
+import Footer from "../default/footer";
+import "../Style/rooms.css"
 // const [Room,setRoom]= useState([]);
 
 const GetRoom = ()  => {
 
       const navigate = useNavigate();
-      // let deluxeAvailable = localStorage.getItem('deluxeAvailability');
-      // let executiveAvailable = localStorage.getItem('executiveAvailability');
-      let deluxeAvailable= true;
-      let executiveAvailable= true;
+      let deluxeAvailable = true;
+      let executiveAvailable = true;
+      // deluxeAvailable = localStorage.getItem('deluxeAvailability');
+      // executiveAvailable = localStorage.getItem('executiveAvailability');
+
       let isDeluxe = false;
 
 
@@ -36,18 +38,19 @@ const GetRoom = ()  => {
         console.log(isDeluxe)
       }
     return(
-      <div><Header_Common />
+      <div className= "rooms"> <Header_Common />
+      <CardGroup>
       {(function() {
-          if (deluxeAvailable) {
+          if (deluxeAvailable === true) {
             return (<Card border="primary" style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="../images/room1.png" alt="room1"/>
+            <Card.Img variant="top" src={room2} width= "120%" />
             <Card.Body>
-              <Card.Title><h1>Deluxe Rooms</h1></Card.Title>
+              <Card.Title><h3>Deluxe Rooms</h3></Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                Price per deluxe room is $140
               </Card.Text>
-              <Button onClick = {redirect1} variant="primary">Book Deluxe</Button>
+              <Button style={{ backgroundColor: "orange", color: "black" }}
+            color="inherit" onClick = {redirect1} variant="primary">Book Deluxe</Button>
             </Card.Body>
           </Card>);
           };
@@ -55,21 +58,23 @@ const GetRoom = ()  => {
         })()}
         
         {(function() {
-          if (executiveAvailable) {
+          if (executiveAvailable === true) {
             return (<Card border="primary" style={{ width: '18rem' }}>
-            {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+            <Card.Img variant="top" src={room1} width="120%"  />
             <Card.Body>
-              <Card.Title><h1>Executive Rooms</h1></Card.Title>
+              <Card.Title><h3>Executive Rooms</h3></Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                Price per executive room is $200
               </Card.Text>
-              <Button onClick = {redirect2} variant="primary">Book Executive</Button>
+              <Button style={{ backgroundColor: "orange", color: "black" }}
+            color="inherit" onClick = {redirect2} variant="primary">Book Executive</Button>
             </Card.Body>
           </Card>);
           };
           
         })()}
+        </CardGroup>
+        <Footer style={{"margin-bottom":"100px"}}/>
       </div>
 
 )
