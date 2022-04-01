@@ -34,36 +34,36 @@ const Admin = () => {
         console.log(pendingData);
       });
   };
-  const onClick2 = () => {
-    setCompleted(false);
-    setPending(false);
-    setAssigned(true);
-    axios
-      .get("http://localhost:8080/auth/assignedReqs", {
-        headers: {
-          "x-access-token": token,
-        },
-      })
-      .then((res) => {
-        setAssignedData(res.data);
-        console.log(assignedData);
-      });
-  };
-  const onClick3 = () => {
-    setPending(false);
-    setAssigned(false);
-    setCompleted(true);
-    axios
-      .get("http://localhost:8080/auth/completedReqs", {
-        headers: {
-          "x-access-token": token,
-        },
-      })
-      .then((res) => {
-        setCompletedData(res.data);
-        console.log(completedData);
-      });
-  };
+  // const onClick2 = () => {
+  //   setCompleted(false);
+  //   setPending(false);
+  //   setAssigned(true);
+  //   axios
+  //     .get("http://localhost:8080/auth/assignedReqs", {
+  //       headers: {
+  //         "x-access-token": token,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setAssignedData(res.data);
+  //       console.log(assignedData);
+  //     });
+  // };
+  // const onClick3 = () => {
+  //   setPending(false);
+  //   setAssigned(false);
+  //   setCompleted(true);
+  //   axios
+  //     .get("http://localhost:8080/auth/completedReqs", {
+  //       headers: {
+  //         "x-access-token": token,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setCompletedData(res.data);
+  //       console.log(completedData);
+  //     });
+  // };
 
   useEffect(() => {
     setAssigned(false);
@@ -125,54 +125,54 @@ const Admin = () => {
     }
   };
 
-  const Completed = (reqID) => {
-    axios.post(
-      "http://localhost:8080/auth/markComplete",
-      {
-        requestID: reqID,
-      },
-      {
-        headers: {
-          "x-access-token": token,
-        },
-      }
-    );
+  // const Completed = (reqID) => {
+  //   axios.post(
+  //     "http://localhost:8080/auth/markComplete",
+  //     {
+  //       requestID: reqID,
+  //     },
+  //     {
+  //       headers: {
+  //         "x-access-token": token,
+  //       },
+  //     }
+  //   );
 
-    alert("Work is completed");
-    axios
-      .get("http://localhost:8080/auth/assignedReqs", {
-        headers: {
-          "x-access-token": token,
-        },
-      })
-      .then((res) => {
-        setAssignedData(res.data);
-      });
-  };
+  //   alert("Work is completed");
+  //   axios
+  //     .get("http://localhost:8080/auth/assignedReqs", {
+  //       headers: {
+  //         "x-access-token": token,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setAssignedData(res.data);
+  //     });
+  // };
 
-  const Deleted = (reqID) => {
-    axios.post(
-      "http://localhost:8080/auth/deleteCompleted",
-      {
-        requestID: reqID,
-      },
-      {
-        headers: {
-          "x-access-token": token,
-        },
-      }
-    );
-    alert("Request is deleted from System");
-    axios
-      .get("http://localhost:8080/auth/completedReqs", {
-        headers: {
-          "x-access-token": token,
-        },
-      })
-      .then((res) => {
-        setCompletedData(res.data);
-      });
-  };
+  // const Deleted = (reqID) => {
+  //   axios.post(
+  //     "http://localhost:8080/auth/deleteCompleted",
+  //     {
+  //       requestID: reqID,
+  //     },
+  //     {
+  //       headers: {
+  //         "x-access-token": token,
+  //       },
+  //     }
+  //   );
+  //   alert("Request is deleted from System");
+  //   axios
+  //     .get("http://localhost:8080/auth/completedReqs", {
+  //       headers: {
+  //         "x-access-token": token,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setCompletedData(res.data);
+  //     });
+  // };
   return (
     <div className="admin">
       <Header_Common />
@@ -235,7 +235,7 @@ const Admin = () => {
           })}
         </div>
       )}
-
+{/* 
       {assigned && (
         <div>
           <h3>Assigned Request</h3>
@@ -268,6 +268,7 @@ const Admin = () => {
           })}
         </div>
       )}
+
       {completed && (
         <div>
           <h3>Completed Request</h3>
@@ -297,7 +298,7 @@ const Admin = () => {
             );
           })}
         </div>
-      )}
+      )} */}
       <Footer />
     </div>
   );
