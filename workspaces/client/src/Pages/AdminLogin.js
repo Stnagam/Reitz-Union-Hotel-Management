@@ -26,38 +26,12 @@ const AdminLogin = () => {
     if (!username) {
       formIsValid = false;
       errors["username"] = "username cannot be empty";
-    } else {
-      if (username != "undefined") {
-        console.log(username);
-        let lastAtPos = username.lastIndexOf("@");
-        let lastDotPos = username.lastIndexOf(".");
-
-        if (
-          !(
-            lastAtPos < lastDotPos &&
-            lastAtPos > 0 &&
-            username.indexOf("@@") == -1 &&
-            lastDotPos > 2 &&
-            username.length - lastDotPos > 2
-          )
-        ) {
-          formIsValid = false;
-          errors["username"] = "username is not valid";
-        }
-      }
-    }
+    } 
 
     if (!password) {
       formIsValid = false;
       errors["password"] = "Password cannot be empty";
-    } else {
-      if (password != "undefined") {
-        if (password.length < 8) {
-          formIsValid = false;
-          errors["password"] = "Password length should not be less than 8";
-        }
-      }
-    }
+    } 
     seterrors(errors);
     return formIsValid;
   };
@@ -65,16 +39,29 @@ const AdminLogin = () => {
   const callLoginApi = (e) => {
     handleValidation();
     e.preventDefault();
-    if (username == "admin" && password == "admin") {
-    //   localStorage.setItem("token", "token"]);
-      localStorage.setItem("email", username);
-      
-      
-      navigate("/admin");
-    } else {
-      alert("Please enter valid username and password");
+    axios
+      .post("http://localhost:8080/login", {
+        Email: username,
+        Password: password,
+      })
+      .then((res) => {
+        // console.log(res.data['message']);
+        // setMessage(res.data['message']);
+        // alert(message);
+        // console.log(res);
+        if (res.data["message"] === "logged in") {
+          console.log(res.data);
+          localStorage.setItem("token", res.data["token"]);
+          localStorage.setItem("email", res.data["email"]);
+          setJwt(res.data["token"]);
+          localStorage.setItem("isLogin", true);
+          setMessage(res.data["message"]);
+          navigate("/admin");
+        } else {
+          alert(res.data["message"]);
+        }
+      });
     }
-  };
 
   var temp = { pass: "123456", username: "he.patel@ufl.edu" };
 

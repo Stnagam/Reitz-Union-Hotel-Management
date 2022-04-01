@@ -49,21 +49,21 @@ const Admin = () => {
         console.log(assignedData);
       });
   };
-  // const onClick3 = () => {
-  //   setPending(false);
-  //   setAssigned(false);
-  //   setCompleted(true);
-  //   axios
-  //     .get("http://localhost:8080/auth/completedReqs", {
-  //       headers: {
-  //         "x-access-token": token,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       setCompletedData(res.data);
-  //       console.log(completedData);
-  //     });
-  // };
+  const onClick3 = () => {
+    setPending(false);
+    setAssigned(false);
+    setCompleted(true);
+    axios
+      .get("http://localhost:8080/auth/completedReqs", {
+        headers: {
+          "x-access-token": token,
+        },
+      })
+      .then((res) => {
+        setCompletedData(res.data);
+        console.log(completedData);
+      });
+  };
 
   useEffect(() => {
     setAssigned(false);
@@ -177,15 +177,15 @@ const Admin = () => {
     <div className="admin">
       <Header_Common />
 
-      <div className="navbar">
-        <button className="button" onClick={onClick1}>
+      <div className="navbar" >
+        <button className="button" name="pending" onClick={onClick1}>
           Pending Request
         </button>
 
-        <button className="button" onClick={onClick2}>
+        <button className="button" name="assigned" onClick={onClick2}>
           Assigned Request
         </button>
-        <button className="button" onClick={onClick3}>
+        <button className="button" name="completed"  onClick={onClick3}>
           Completed Request
         </button>
       </div>
@@ -208,6 +208,7 @@ const Admin = () => {
                   <div>Status: Pending</div>
                   <div>
                     <input
+                    name = "employee"
                       type="text"
                       onChange={(e) => setEmployee(e.target.value)}
                       placeholder="Assign employee"
@@ -253,6 +254,7 @@ const Admin = () => {
                     Assigned to: {pData.employeeID}
                     <br />
                     <button
+                    name="complet"
                       onClick={() => Completed(reqID)}
                       style={{
                         "background-color": "Yellow",
@@ -284,6 +286,7 @@ const Admin = () => {
                   <div>Status: Completed</div>
                   <div>Assigned to: Employee name</div>
                   <button
+                  name="delete"
                     onClick={() => Deleted(reqID)}
                     style={{
                       "background-color": "Red",
