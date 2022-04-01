@@ -13,10 +13,14 @@ Billing and Invoicing (For customers and the hotel)
 Admin/Manager portal(For manager/Admin to manage the entire property)
 
 
-Group Members:
+**Group Members:**
 
-Front end: Hetansh Narendrabhai Patel and Harsha Prakash Pakki
-Back end: Sai Teja Nagam  and Sheela Rani Ippili
+**Backend Team:** 
+Sai Teja Nagam   and   Sheela Rani Ippili
+**Frontend Team:** 
+Hetansh Narendrabhai Patel   and   Harsha Prakash Pakki
+
+
 
 Harsha Prakash Pakki     @harshapakki
 

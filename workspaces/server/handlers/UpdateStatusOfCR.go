@@ -26,3 +26,11 @@ func MarkCompleted(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(resp)
 
 }
+func DeleteCompleted(w http.ResponseWriter, r *http.Request) {
+	incomingCR := &models.CustomerRequest{}
+	json.NewDecoder(r.Body).Decode(incomingCR)
+	utils.DB.Where("request_id = ?", incomingCR.RequestID).Delete(&models.CustomerRequest{})
+	var resp = map[string]interface{}{"message": "Request has been deleted"}
+	json.NewEncoder(w).Encode(resp)
+
+}
