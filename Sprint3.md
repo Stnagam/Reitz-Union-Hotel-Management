@@ -11,7 +11,7 @@ The idea is to provide a web-application to book rooms at Reitz Union hotel.
 - [All issues link](https://github.com/Stnagam/Reitz-Union-Hotel-Management/issues)
 
 ## Demo links for sprint3
-- [end to end demo of the project](https://github.com/Stnagam/Reitz-Union-Hotel-Management/issues)
+- [end to end demo of the project](https://www.youtube.com/watch?v=7bo0VVv3ueM)
 
 ## How to run the project
 #### Backend
