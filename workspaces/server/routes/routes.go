@@ -35,6 +35,8 @@ func Controller() {
 	s.HandleFunc("/availablerooms", handlers.AvailableRoomsHandler).Methods("POST")
 	s.HandleFunc("/cancelbooking", handlers.CancelBookingHandler).Methods("POST")
 	s.HandleFunc("/bookings", handlers.BookingHandler).Methods("POST")
+	s.HandleFunc("/getfeedback", handlers.GetFeedbackHandler).Methods("POST")
+	s.HandleFunc("/viewfeedback", handlers.ViewFeedbackHandler).Methods("POST")
 	s.HandleFunc("/customerReqs", handlers.CustomerReqs).Methods("POST")
 	s.HandleFunc("/pendingReqs", handlers.GetPendingReqs).Methods("GET")
 	s.HandleFunc("/assignedReqs", handlers.GetAssignedReqs).Methods("GET")
