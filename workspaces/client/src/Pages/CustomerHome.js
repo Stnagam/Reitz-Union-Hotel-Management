@@ -6,6 +6,7 @@ import Tile from "../components/Tile";
 import "../Style/customerHome.css";
 import axios from "axios";
 import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import room1 from "../images/deluxe.jpg";
 import room2 from "../images/room2.png";
 
@@ -46,6 +47,23 @@ const CustomerHome = () => {
       <Header_Common />
       {/* <button onClick={onClick}>Click to show</button> */}
       <div>
+      <Link to="/Getfeedback">
+          <Button
+            style={{ backgroundColor: "orange", color: "black" }}
+            color="inherit"
+          >
+            Give Feedback
+          </Button>
+        </Link>
+
+        <Link to="/Cancelbooking">
+          <Button
+            style={{ backgroundColor: "orange", color: "black" }}
+            color="inherit"
+          >
+            Cancel Booking
+          </Button>
+        </Link>
         <h1>Upcoming booking</h1>
         {/* {pastBooking.} */}
 
@@ -109,8 +127,13 @@ const CustomerHome = () => {
               </Card>
             );
           })}
+
+          
         </div>
+
+
       </div>
+      
       <Footer style={{ "margin-bottom": "100px" }} />
     </div>
   );
