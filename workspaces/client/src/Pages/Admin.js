@@ -5,7 +5,11 @@ import "../Style/admin.css";
 import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import axios from "axios";
+
+import { Link } from "react-router-dom";
+
 import Admin_Header_Common from "../components/Admin_Header_Common";
+
 
 const Admin = () => {
   const [pendingData, setPendingData] = useState([]);
@@ -189,6 +193,15 @@ const Admin = () => {
         <button className="button" name="completed"  onClick={onClick3}>
           Completed Request
         </button>
+        <Link to="/Viewfeedback">
+          <Button
+            style={{ backgroundColor: "orange", color: "black" }}
+            color="inherit"
+          >
+            View Feedback
+          </Button>
+        </Link>
+
       </div>
 
        {/* <Pending pending={pending} pendingData={pendingData} />
