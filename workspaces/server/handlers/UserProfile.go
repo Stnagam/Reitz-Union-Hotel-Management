@@ -23,3 +23,24 @@ func GetUserDetails(w http.ResponseWriter, r *http.Request) {
 	}
 
 }
+func UpdateUserMobile(w http.ResponseWriter, r *http.Request) {
+	user := &models.User{}
+	json.NewDecoder(r.Body).Decode(user)
+	mobileNo := user.Mobile
+	existsOrNot := utils.DB.First(&user, "email = ?", user.Email)
+	if existsOrNot.RowsAffected != 0 {
+
+		utils.DB.Model(&models.User{}).Where("email = ?", user.Email).Update("mobile", mobileNo)
+
+		var resp = map[string]interface{}{"message": "Mobile Number Has been updated"}
+
+		json.NewEncoder(w).Encode(resp)
+		return
+
+	} else {
+		var resp = map[string]interface{}{"message": "Email ID doesn't exists"}
+		json.NewEncoder(w).Encode(resp)
+		return
+	}
+
+}
