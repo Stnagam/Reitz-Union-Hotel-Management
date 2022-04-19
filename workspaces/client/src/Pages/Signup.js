@@ -147,7 +147,7 @@ const Signup = () => {
         })
         .then((res) => {
           console.log(res.data);
-          
+
           if (res.data["message"] === "Success") {
             alert("Registered Successfully");
             navigate("/login");
@@ -157,137 +157,136 @@ const Signup = () => {
   };
 
   return (
-    <>
-      <Fragment>
-        <HeaderSignUp />
-        <div className="signupform">
-          <h1>First time user!!! Register</h1>
-          <span style={{ color: "red" }}>{formData.errormsg}</span>
+    <div className="signUp">
+      <HeaderSignUp />
+      <div className="signupform">
+        <h1>First time user!!! Register</h1>
+        <span style={{ color: "red" }}>{formData.errormsg}</span>
 
-          <Form onSubmit={(e) => onSubmit(e)}>
-            <Form.Group controlId="firstname">
-              {/* <Form.Label>First Name</Form.Label> */}
-              <Form.Control
-                type="text"
-                name="firstname"
-                placeholder="Enter First name"
-                value={firstname}
-                required
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <span style={{ color: "red", fontSize: "15px" }}>
-                {errors["firstname"]}
-              </span>
-            </Form.Group>
+        <Form onSubmit={(e) => onSubmit(e)}>
+          <Form.Group controlId="firstname">
+            {/* <Form.Label>First Name</Form.Label> */}
+            <Form.Control
+              type="text"
+              name="firstname"
+              placeholder="Enter First name"
+              value={firstname}
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <br />
+            <span style={{ color: "red", fontSize: "15px" }}>
+              {errors["firstname"]}
+            </span>
+          </Form.Group>
 
-            <Form.Group controlId="lastname">
-              {/* <Form.Label>Last Name</Form.Label> */}
-              <Form.Control
-                type="text"
-                name="lastname"
-                placeholder="Enter Last name"
-                value={lastname}
-                required
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <span style={{ color: "red", fontSize: "15px" }}>
-                {errors["lastname"]}
-              </span>
-            </Form.Group>
+          <Form.Group controlId="lastname">
+            {/* <Form.Label>Last Name</Form.Label> */}
+            <Form.Control
+              type="text"
+              name="lastname"
+              placeholder="Enter Last name"
+              value={lastname}
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <br />
+            <span style={{ color: "red", fontSize: "15px" }}>
+              {errors["lastname"]}
+            </span>
+          </Form.Group>
 
-            <Form.Group controlId="email">
-              {/* <Form.Label>Email</Form.Label> */}
-              <Form.Control
-                name="email"
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                required
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <span style={{ color: "red", fontSize: "15px" }}>
-                {errors["email"]}
-              </span>
-            </Form.Group>
+          <Form.Group controlId="email">
+            {/* <Form.Label>Email</Form.Label> */}
+            <Form.Control
+              name="email"
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <br />
+            <span style={{ color: "red", fontSize: "15px" }}>
+              {errors["email"]}
+            </span>
+          </Form.Group>
 
-            <Form.Group controlId="password">
-              {/* <Form.Label>Password</Form.Label> */}
-              <Form.Control
-                type="password"
-                name="password"
-                placeholder="Enter Password"
-                value={password}
-                required
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <span style={{ color: "red", fontSize: "15px" }}>
-                {errors["password"]}
-              </span>
-            </Form.Group>
+          <Form.Group controlId="password">
+            {/* <Form.Label>Password</Form.Label> */}
+            <Form.Control
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              value={password}
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <br />
+            <span style={{ color: "red", fontSize: "15px" }}>
+              {errors["password"]}
+            </span>
+          </Form.Group>
 
-            <Form.Group controlId="password">
-              {/* <Form.Label>Confirm Password</Form.Label> */}
-              <Form.Control
-                type="password"
-                name="password1"
-                placeholder="Confirm Password "
-                value={password1}
-                required
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <span style={{ color: "red", fontSize: "15px" }}>
-                {errors["password1"]}
-              </span>
-            </Form.Group>
+          <Form.Group controlId="password">
+            {/* <Form.Label>Confirm Password</Form.Label> */}
+            <Form.Control
+              type="password"
+              name="password1"
+              placeholder="Confirm Password "
+              value={password1}
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <br />
+            <span style={{ color: "red", fontSize: "15px" }}>
+              {errors["password1"]}
+            </span>
+          </Form.Group>
 
-            <Form.Group controlId="mobile">
-              {/* <Form.Label>Mobile</Form.Label> */}
-              <Form.Control
-                type="mobile"
-                name="mobile"
-                placeholder="Enter Mobile number"
-                value={mobile}
-                required
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <span style={{ color: "red", fontSize: "15px" }}>
-                {errors["mobile"]}
-              </span>
-            </Form.Group>
+          <Form.Group controlId="mobile">
+            {/* <Form.Label>Mobile</Form.Label> */}
+            <Form.Control
+              type="mobile"
+              name="mobile"
+              placeholder="Enter Mobile number"
+              value={mobile}
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <br />
+            <span style={{ color: "red", fontSize: "15px" }}>
+              {errors["mobile"]}
+            </span>
+          </Form.Group>
 
-            <Form.Group controlId="age">
-              {/* <Form.Label>Age</Form.Label> */}
-              <Form.Control
-                type="age"
-                name="age"
-                placeholder="Enter Age"
-                value={age}
-                required
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <span style={{ color: "red", fontSize: "15px" }}>
-                {errors["age"]}
-              </span>
-            </Form.Group>
-            <div className="buttons">
-              <Button
-                variant="secondary"
-                style={{ background: "#ffa500" }}
-                size="lg"
-                onClick={(e) => {
-                  onSubmit(e);
-                }}
-              >
-                Register
-              </Button>
-              {/* <Link to="/login">
+          <Form.Group controlId="age">
+            {/* <Form.Label>Age</Form.Label> */}
+            <Form.Control
+              type="age"
+              name="age"
+              placeholder="Enter Age"
+              value={age}
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <br />
+            <span style={{ color: "red", fontSize: "15px" }}>
+              {errors["age"]}
+            </span>
+          </Form.Group>
+          <div className="buttons">
+            <Button
+              variant="secondary"
+              style={{ background: "#ffa500" }}
+              size="lg"
+              onClick={(e) => {
+                onSubmit(e);
+              }}
+            >
+              Register
+            </Button>
+            {/* <Link to="/login">
                 <Button
                   style={{ color: "white", background: "#1976d2" }}
                   size="lg"
@@ -295,12 +294,12 @@ const Signup = () => {
                   Login
                 </Button>
               </Link> */}
-            </div>
-          </Form>
-        </div>
-      </Fragment>
+          </div>
+        </Form>
+      </div>
+
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -21,10 +21,9 @@ import Getfeedback from './Pages/Getfeedback'
 
 
 import AdminLogin from './Pages/AdminLogin';
-
-
 import Admin from './Pages/Admin';
 import GetRooms from './Pages/Rooms'
+import Profile from './Pages/Profile';
 
 
 
@@ -46,9 +45,9 @@ ReactDOM.render(
      <Route path="/Getfeedback" element={<Getfeedback/>} />
      
     <Route exact path ="/adminLogin" element={<AdminLogin/>}/>
-
+ 
    
-
+ <Route exact path ="/profile" element={<Profile/>}/>
      <Route exact path="/admin" element={<Admin/>} />
      <Route exact path="/rooms" element={<GetRooms/>} />
   </Routes>
