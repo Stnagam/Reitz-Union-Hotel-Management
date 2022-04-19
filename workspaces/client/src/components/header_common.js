@@ -100,6 +100,28 @@ export default function Header_Common() {
         >
           Log out
         </Button>
+
+        {
+          <Link to="/Cancelbooking">
+            <Button
+              className="loginButton"
+              style={{ backgroundColor: "orange", color: "black" }}
+            >
+              Cancel Booking
+            </Button>
+          </Link>
+        }
+
+{
+          <Link to="/Getfeedback">
+            <Button
+              className="loginButton"
+              style={{ backgroundColor: "orange", color: "black" }}
+            >
+              Feedback
+            </Button>
+          </Link>
+        }
       </Toolbar>
     </AppBar>
   );
