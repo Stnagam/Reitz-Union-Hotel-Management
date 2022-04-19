@@ -9,7 +9,7 @@ import "../Style/cancellation.css";
 
 
 
-const Cancellation = () => {
+const Getfeedback = () => {
     const navigate = useNavigate();
   
     // const history = useHistory();
@@ -17,7 +17,7 @@ const Cancellation = () => {
     const [formData, setFormData] = useState({
 
       email: "",
-      bookingID: ""
+      feedbackform: ""
     });
   
     const [errors, seterrors] = useState([]);
@@ -27,9 +27,9 @@ const Cancellation = () => {
         let formIsValid = true;
     
         //
-        if (!bookingID) {
+        if (!feedbackform) {
           formIsValid = false;
-          errors["bookingID"] = "Booking ID field cannot be empty";
+          errors["feedbackform"] = "Feedback field cannot be empty";
         }
     
    //Email
@@ -59,7 +59,7 @@ const Cancellation = () => {
   return formIsValid;
 };
 
-const { bookingID, email } =
+const { email, feedbackform } =
 formData;
 const onChange = (e) =>
 setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -72,8 +72,8 @@ const onSubmit = async (e) => {
 
         let token = localStorage.getItem('token');
       axios
-        .post("http://localhost:8080/auth/cancelbooking", {
-          bookingID: bookingID,
+        .post("http://localhost:8080/auth/getfeedback", {
+         feedbackform: feedbackform,
           Email: email
         }, {
             headers: {
@@ -83,12 +83,12 @@ const onSubmit = async (e) => {
         .then((res) => {
           console.log(res.data);
           
-          if (res.data["message"] === "Cancellled the booking successfully") {
-            alert("Booking cancelled");
+          if (res.data["message"] === "feedback logged successfully") {
+            alert("Feedback Submitted");
             navigate("/home");
           }
           else {
-              alert("Cancellation failed!!!!")
+              alert("Submission failed!!!!")
           }
         });
     }
@@ -99,29 +99,12 @@ const onSubmit = async (e) => {
       <Fragment>
         <Header_Common/>
         <div className="cancelform">
-          <h1>Please confirm the below details to cancel your boooking</h1>
+          <h1>Please enter your feedback below</h1>
           <span style={{ color: "red" }}>{formData.errormsg}</span>
 
           <Form onSubmit={(e) => onSubmit(e)}>
 
-
-           <Form.Group controlId="bookingID">
-              {/* <Form.Label>Last Name</Form.Label> */}
-              <Form.Control
-                type="text"
-                name="bookingID"
-                placeholder="Booking ID"
-                value={bookingID}
-                required
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <span style={{ color: "red", fontSize: "15px" }}>
-                {errors["bookingID"]}
-              </span>
-            </Form.Group>
-
-            <Form.Group controlId="email">
+          <Form.Group controlId="email">
               {/* <Form.Label>Email</Form.Label> */}
               <Form.Control
                 name="email"
@@ -137,6 +120,25 @@ const onSubmit = async (e) => {
               </span>
             </Form.Group>
 
+
+           <Form.Group controlId="feedbackform">
+              {/* <Form.Label>Last Name</Form.Label> */}
+              <Form.Control
+                type="text"
+                name="feedbackform"
+                placeholder="Feedback"
+                value={feedbackform}
+                required
+                onChange={(e) => onChange(e)}
+              />
+              <br />
+              <span style={{ color: "red", fontSize: "15px" }}>
+                {errors["bookingID"]}
+              </span>
+            </Form.Group>
+
+
+
  
             <div className="buttons">
               <Button
@@ -147,7 +149,7 @@ const onSubmit = async (e) => {
                   onSubmit(e);
                 }}
               >
-                Cancel Booking
+                Submit Feedback
               </Button>
               {/* <Link to="/login">
                 <Button
@@ -165,5 +167,5 @@ const onSubmit = async (e) => {
     </>
   );
 };
-export default Cancellation;
+export default Getfeedback;
 

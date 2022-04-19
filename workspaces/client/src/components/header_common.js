@@ -102,18 +102,18 @@ export default function Header_Common() {
         </Button>
 
         {
-          <Link to="/login">
+          <Link to="/Cancelbooking">
             <Button
               className="loginButton"
               style={{ backgroundColor: "orange", color: "black" }}
             >
-              Cancellation
+              Cancel Booking
             </Button>
           </Link>
         }
 
 {
-          <Link to="/login">
+          <Link to="/Getfeedback">
             <Button
               className="loginButton"
               style={{ backgroundColor: "orange", color: "black" }}

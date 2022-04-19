@@ -17,6 +17,7 @@ import Payment from './Pages/Payment';
 import Reservation from './Pages/Reservation';
 import CustomerHome from './Pages/CustomerHome.js';
 import Cancellation from './Pages/Cancellation'
+import Getfeedback from './Pages/Getfeedback'
 
 
 import AdminLogin from './Pages/AdminLogin';
@@ -42,6 +43,8 @@ ReactDOM.render(
     <Route path='/resetpassword' element={<ResetPassword />} />
      <Route path="/CustomerHome" element={<CustomerHome/>} />
      <Route path="/Cancelbooking" element={<Cancellation/>} />
+     <Route path="/Getfeedback" element={<Getfeedback/>} />
+     
     <Route exact path ="/adminLogin" element={<AdminLogin/>}/>
 
    
