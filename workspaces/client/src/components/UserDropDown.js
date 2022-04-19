@@ -25,6 +25,9 @@ export default function UserDropDown() {
     navigate("/profile");
   };
 
+  const showBooking = () => {
+    navigate("/customerHome")
+  }
   const onClick = (e) => {
     let token = localStorage.getItem("token");
 
@@ -77,7 +80,7 @@ export default function UserDropDown() {
         <MenuItem className="menuItem" onClick={showProfile}>
           Profile
         </MenuItem>
-        <MenuItem className="menuItem" onClick={handleClose}>
+        <MenuItem className="menuItem" onClick={showBooking}>
           My bookings
         </MenuItem>
         <MenuItem className="menuItem" onClick={onClick}>
