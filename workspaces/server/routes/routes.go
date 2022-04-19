@@ -46,6 +46,7 @@ func Controller() {
 	s.HandleFunc("/deleteCompleted", handlers.DeleteCompleted).Methods("POST")
 	s.HandleFunc("/getUserDetails", handlers.GetUserDetails).Methods("POST")
 	s.HandleFunc("/updateMobile", handlers.UpdateUserMobile).Methods("POST")
+	s.HandleFunc("/getBookings", handlers.GetBookings).Methods("POST")
 	cors(s)
 	log.Fatal(http.ListenAndServe(":8080", cors(router)))
 
