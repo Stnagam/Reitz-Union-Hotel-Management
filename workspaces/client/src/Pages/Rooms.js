@@ -28,13 +28,13 @@ const GetRoom = ()  => {
       const redirect1 = () => {
         navigate('/payment');
         isDeluxe = true;
-        localStorage.setItem(isDeluxe, 'isDeluxe');
+        localStorage.setItem('isDeluxe', isDeluxe);
         console.log(isDeluxe)
       }
 
       const redirect2 = () => {
         navigate('/payment');
-        localStorage.setItem(isDeluxe, 'isDeluxe');
+        localStorage.setItem('isDeluxe', isDeluxe);
         console.log(isDeluxe)
       }
     return(
