@@ -1,16 +1,17 @@
-/* #login {
-  background-image: url("../Reitz\ Union.jpg");
-  height: 500px;
+.Login {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background-repeat: no-repeat;
-  background-size: 1000px;
-} */
+  /* background-size: 1000px;  */
+}
 
 .loginform {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
+  /* justify-content: center; */
+height:min-content;
   /* border: 1px solid #eccece; */
   /* background-color: #fffff0; */
   color: #1976d2;

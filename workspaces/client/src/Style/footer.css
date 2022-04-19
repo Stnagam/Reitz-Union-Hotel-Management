@@ -1,15 +1,16 @@
 .footer {
   background-color: #ffa500;
-  border-top: 2px solid #aaa500;
-  /* position: fixed; */
+  /* border-top: 2px solid #aaa500; */
+  /* position: sticky; */
   width: 100%;
   bottom: 0;
   color: #000000;
   font-size: 12px;
   display: flex;
   flex-direction: column;
-  margin-top: 0px;
+ 
 }
+
 
 .contact {
   margin-top: 5px;

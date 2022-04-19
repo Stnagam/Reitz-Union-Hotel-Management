@@ -8,44 +8,16 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
+import { List } from "@mui/material";
+import UserDropDown from "./UserDropDown";
 
-
-
-// import { Avatar } from '@material-ui/core';
+// import { Avatar } from '@material-ui';
 
 // import { Avatar } from "react-native-paper";
 
 export default function Header_Common() {
   const token = localStorage.getItem("token");
-  const navigate = useNavigate();
-
-  const onClick = (e) => {
-    let token = localStorage.getItem("token");
-
-    const body = {
-      message: "kill token",
-    };
-    axios
-      .post("http://localhost:8080/auth/logout", body, {
-        headers: {
-          "x-access-token": token,
-        },
-      })
-      .then((res) => {
-        {
-          console.log(res);
-          localStorage.clear();
-          // localStorage.setItem("isLogin", false);
-        }
-      });
-    navigate("/");
-
-    // axios.defaults.headers.post["Auth"] = token;
-
-    // console.log(token);
-  };
 
   return (
     <AppBar position="static">
@@ -84,44 +56,7 @@ export default function Header_Common() {
           </Link>
         </Typography>
 
-        {/* <Link
-            to= "/login"
-            >
-            <Button className="loginButton" style={{backgroundColor: "orange", color:"black"}}>Login</Button>
-          </Link> */}
-        
-
-        {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
-
-        <Button
-          style={{ backgroundColor: "orange", color: "black" }}
-          color="inherit"
-          onClick={onClick}
-        >
-          Log out
-        </Button>
-
-        {
-          <Link to="/Cancelbooking">
-            <Button
-              className="loginButton"
-              style={{ backgroundColor: "orange", color: "black" }}
-            >
-              Cancel Booking
-            </Button>
-          </Link>
-        }
-
-{
-          <Link to="/Getfeedback">
-            <Button
-              className="loginButton"
-              style={{ backgroundColor: "orange", color: "black" }}
-            >
-              Feedback
-            </Button>
-          </Link>
-        }
+        <UserDropDown />
       </Toolbar>
     </AppBar>
   );

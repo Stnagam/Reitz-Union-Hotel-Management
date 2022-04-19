@@ -14,13 +14,8 @@ const Request = () => {
       .post(
         "http://localhost:8080/auth/customerReqs",
         {
-          // RequestType: "Pending",
-          // Email: localStorage.getItem("Email"),
-          // Comment: comment,
-          // Status: "Pending",
-
           Email: localStorage.getItem("email"),
-          RequestType : reqValue,
+          RequestType: reqValue,
           Comment: comment,
           Status: "Pending",
         },
