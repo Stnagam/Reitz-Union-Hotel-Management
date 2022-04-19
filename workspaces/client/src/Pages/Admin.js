@@ -5,7 +5,11 @@ import "../Style/admin.css";
 import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import axios from "axios";
+
 import { Link } from "react-router-dom";
+
+import Admin_Header_Common from "../components/Admin_Header_Common";
+
 
 const Admin = () => {
   const [pendingData, setPendingData] = useState([]);
@@ -176,7 +180,7 @@ const Admin = () => {
   };
   return (
     <div className="admin">
-      <Header_Common />
+      <Admin_Header_Common/>
 
       <div className="navbar" >
         <button className="button" name="pending" onClick={onClick1}>

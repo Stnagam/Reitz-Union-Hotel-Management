@@ -14,7 +14,6 @@ const Profile = () => {
   let token = localStorage.getItem("token");
 
   useEffect(() => {
-   
     axios
       .post(
         "http://localhost:8080/auth/userDetails",
@@ -33,32 +32,34 @@ const Profile = () => {
         setMobile(res.data.mobile);
         setAge(res.data.age);
       });
-
-
   }, []);
 
- 
-  const editProfile = () => {};
+  const changeMob = () => {
+   
+  };
 
   return (
     <div className="form">
       <Header_Common />
       <h2>User Profile:</h2>
-      First name: {firstname}
-      <br />
-      Last name: {lastname}
-      <br />
-      Email: {email}
-      <br />
-      Mobile: {mobile}
-      <br />
-      Age: {age}
-      <button
-        onClick={editProfile}
-        style={{ color: "white", background: "green" }}
-      >
-        Edit Profile
-      </button>
+      <div className="firstname"> First name: {firstname}</div>
+
+      <div>Last name: {lastname}</div>
+
+      <div>Email: {email}</div>
+
+      <div>
+        Mobile: {mobile}{" "}
+        <button
+          onClick={changeMob}
+          style={{ color: "white", background: "green" }}
+        >
+          Edit Mobile num
+        </button>
+      </div>
+
+      <div> Age: {age}</div>
+
       <Footer />
     </div>
   );

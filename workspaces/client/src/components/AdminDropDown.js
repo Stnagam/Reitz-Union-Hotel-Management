@@ -10,7 +10,7 @@ import { blue, orange, yellow } from "@mui/material/colors";
 
 import "../Style/userDropDown.css";
 
-export default function UserDropDown() {
+export default function AdminDropDown() {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -18,16 +18,13 @@ export default function UserDropDown() {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);
+  //  navigate("/customerHome");
   };
 
   const showProfile = () => {
     navigate("/profile");
   };
 
-  const showBooking = () => {
-    navigate("/customerHome")
-  }
   const onClick = (e) => {
     let token = localStorage.getItem("token");
 
@@ -80,8 +77,8 @@ export default function UserDropDown() {
         <MenuItem className="menuItem" onClick={showProfile}>
           Profile
         </MenuItem>
-        <MenuItem className="menuItem" onClick={showBooking}>
-          My bookings
+        <MenuItem className="menuItem" onClick={handleClose}>
+          Feedback
         </MenuItem>
         <MenuItem className="menuItem" onClick={onClick}>
           Logout
