@@ -33,7 +33,7 @@ ReactDOM.render(
   <Routes>
     {/* <Route path="/" element={<App />} /> */}
     <Route path="/" element={<Home/>} />
-    <Route path="/reservation" element={<Reservation />} />
+    <Route path="/home" element={<Reservation />} />
     <Route default path="/login" element={<Login />} />
     <Route path="/signup" element={<Signup />} />
     <Route path="/booking" element={<Booking />} />

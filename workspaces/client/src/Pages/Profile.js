@@ -16,7 +16,7 @@ const Profile = () => {
   useEffect(() => {
     axios
       .post(
-        "http://localhost:8080/auth/userDetails",
+        "http://localhost:8080/auth/getUserDetails",
         { Email: localStorage.getItem("email") },
         {
           headers: {
@@ -50,12 +50,7 @@ const Profile = () => {
 
       <div>
         Mobile: {mobile}{" "}
-        <button
-          onClick={changeMob}
-          style={{ color: "white", background: "green" }}
-        >
-          Edit Mobile num
-        </button>
+        
       </div>
 
       <div> Age: {age}</div>

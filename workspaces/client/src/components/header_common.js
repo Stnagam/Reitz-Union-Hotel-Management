@@ -45,7 +45,7 @@ export default function Header_Common() {
           style={{ textAlign: "center" }}
         >
           <Link
-            to="/"
+            to="/home"
             style={{
               textDecoration: "inherit",
               color: "inherit",

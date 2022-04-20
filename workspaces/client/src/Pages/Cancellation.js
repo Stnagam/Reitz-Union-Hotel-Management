@@ -85,7 +85,7 @@ const onSubmit = async (e) => {
           
           if (res.data["message"] === "Cancellled the booking successfully") {
             alert("Booking cancelled");
-            navigate("/home");
+            navigate("/customerHome");
           }
           else {
               alert("Cancellation failed!!!!")

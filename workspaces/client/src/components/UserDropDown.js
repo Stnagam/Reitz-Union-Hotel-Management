@@ -58,6 +58,7 @@ export default function UserDropDown() {
     <div>
       <Button
         id="basic-button"
+        className="button"
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
