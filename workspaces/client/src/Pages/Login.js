@@ -82,7 +82,7 @@ export default function Login() {
           setJwt(res.data["token"]);
           localStorage.setItem("isLogin", true);
           setMessage(res.data["message"]);
-          navigate("/reservation");
+          navigate("/home");
         } else {
           alert(res.data["message"]);
         }
