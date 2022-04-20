@@ -38,34 +38,32 @@ const CustomerHome = () => {
       });
   }, []);
 
-  const onClick = () => {
-
-  };
+  //
   const isPast = true;
   return (
     <div className="cust-home">
       <Header_Common />
-      {/* <button onClick={onClick}>Click to show</button> */}
       <div>
-      <Link to="/Getfeedback">
-          <Button
-            style={{ backgroundColor: "orange", color: "black" }}
-            color="inherit"
-          >
-            Give Feedback
-          </Button>
-        </Link>
-
         <Link to="/Cancelbooking">
-          <Button
-            style={{ backgroundColor: "orange", color: "black" }}
+          <button
+            style={{ backgroundColor: "#FF6347", color: "white" }}
             color="inherit"
           >
             Cancel Booking
-          </Button>
+          </button>
         </Link>
+        <Link to="/Getfeedback">
+          <button
+            style={{ backgroundColor: "#6B8E23 ", color: "white" }}
+            color="inherit"
+          >
+            Give Feedback
+          </button>
+        </Link>
+      </div>
+
+      <div>
         <h1>Upcoming booking</h1>
-        {/* {pastBooking.} */}
 
         <div>
           {upComingBooking.map((pData) => {
@@ -77,11 +75,16 @@ const CustomerHome = () => {
                 <Card.Body>
                   {/* <Card.Title>Type of room: {pData.typeOfRoom}</Card.Title> */}
                   {pData.typeOfRoom == "executive" && (
-                    <img src={room2} style={{ width: "50%" }} />
+                    <img src={room2} style={{ width: "400px" }} />
                   )}
-                  {pData.typeOfRoom == "deluxe" && <img src={room1} />}
+                  {pData.typeOfRoom == "deluxe" && (
+                    <img src={room1} style={{ width: "400px" }} />
+                  )}
                   <div className="roomNo"> Room no: {pData.roomID}</div>
                   <br />
+                  <div>
+                    Booking id:<label>{pData.bookingID}</label>
+                  </div>
                   {/* {console.log(new Date().toLocaleDateString('en-US'))} */}
                   Checkin date:{" "}
                   {pData.checkin.substr(0, pData.checkin.indexOf("T"))}
@@ -98,7 +101,6 @@ const CustomerHome = () => {
       </div>
       <div>
         <h1>Past booking</h1>
-        {/* {pastBooking.} */}
 
         <div>
           {pastBooking.map((pData) => {
@@ -108,32 +110,30 @@ const CustomerHome = () => {
                   <Card.Header>Type of room: {pData.typeOfRoom}</Card.Header>
                 </h3>
                 <Card.Body>
-                  {/* <Card.Title>Type of room: {pData.typeOfRoom}</Card.Title> */}
                   {pData.typeOfRoom == "executive" && (
-                    <img src={room2} style={{ width: "50%" }} />
+                    <img src={room2} style={{ width: "400px" }} />
                   )}
-                  {pData.typeOfRoom == "deluxe" && <img src={room1} />}
+                  {pData.typeOfRoom == "deluxe" && (
+                    <img src={room1} style={{ width: "400px" }} />
+                  )}
                   <div className="roomNo"> Room no: {pData.roomID}</div>
                   <br />
+                  <div>
+                    Booking id:<label>{pData.bookingID}</label>
+                  </div>
                   {/* {console.log(new Date().toLocaleDateString('en-US'))} */}
                   Checkin date:{" "}
                   {pData.checkin.substr(0, pData.checkin.indexOf("T"))}
                   <br />
                   Cheoutin date:{" "}
                   {pData.checkout.substr(0, pData.checkout.indexOf("T"))}
-                  {/* {console.log(pData.checkin)} */}
-                  {/* Checkin Date: {pData.checkin.toLocaleDateString("en-US")} */}
                 </Card.Body>
               </Card>
             );
           })}
-
-          
         </div>
-
-
       </div>
-      
+
       <Footer style={{ "margin-bottom": "100px" }} />
     </div>
   );
