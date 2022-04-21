@@ -1,8 +1,25 @@
 # Sprint 4 - Summary of tasks achieved
 
-## Project - Overview
+## Description of your application - 200 words max
+- We have built a Reitz Union Hotel Management System that helps customers, Hotel Manager/Admin and Hotel employees. 
+- The main idea is to provide a web-application to book rooms at Reitz Union hotel.
+- We have built an Admin portal, Provided functionality to raise requests and to assign requests, manage requests. 
+- We have created LOGIN, SIGNUP, user bookings page, view bookings, and profile page. 
 
-The idea is to provide a web-application to book rooms at Reitz Union hotel.
+#### Technical Infrastructure leveraged in this project
+- ReactJs for frontend 
+- GORM for persistance framework in GoLang
+- GORILLA/MUX for webservice framework in GoLang
+- CYPRESS/JEST for unit testing
+- PostgreSQL as DB
+- Git Hub as remote repository 
+
+#### The functionalities our application provides are as follows:
+
+- *Register:* 
+- *Login:* 
+
+
 
 ## Team members
 #### Frontend
