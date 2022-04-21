@@ -16,10 +16,8 @@
 
 #### The functionalities our application provides are as follows:
 
-- *Register:* 
-- *Login:* 
-
-
+- *Register*  *Login*  *Book rooms* *Raise Requests* *Manage requests* *Email notifications* 
+- *Display Bookings page* *Reset Password* *Update Profile* 
 
 ## Team members
 #### Frontend
