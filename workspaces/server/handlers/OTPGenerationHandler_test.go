@@ -13,9 +13,9 @@ func TestOTPGenerationHandler(t *testing.T) {
 	//use mock db database name in .env file
 	utils.DBConnection()
 
-	var jsonStr = []byte(`{"email":"sheelaippili@ufl.edu"}`)
+	var jsonStr = []byte(`{"email":"sheelaippili140@gmail.com"}`)
 
-	req, err := http.NewRequest("POST", "/signup", bytes.NewBuffer(jsonStr))
+	req, err := http.NewRequest("POST", "/otpgeneration", bytes.NewBuffer(jsonStr))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -39,9 +39,9 @@ func TestOTPGenerationHandlerNoEmail(t *testing.T) {
 	//use mock db database name in .env file
 	utils.DBConnection()
 
-	var jsonStr = []byte(`{"email":"sheelali9714@gmail.com"}`)
+	var jsonStr = []byte(`{"email":"sheelali@gmail.com"}`)
 
-	req, err := http.NewRequest("POST", "/signup", bytes.NewBuffer(jsonStr))
+	req, err := http.NewRequest("POST", "/otpgeneration", bytes.NewBuffer(jsonStr))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -67,7 +67,7 @@ func TestOTPGenerationHandlerInvalidRequest(t *testing.T) {
 
 	var jsonStr = []byte(`{"email":"sheelali9714@gmail.com", ""}`)
 
-	req, err := http.NewRequest("POST", "/signup", bytes.NewBuffer(jsonStr))
+	req, err := http.NewRequest("POST", "/otpgeneration", bytes.NewBuffer(jsonStr))
 	if err != nil {
 		t.Fatal(err)
 	}
