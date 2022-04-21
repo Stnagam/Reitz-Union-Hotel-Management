@@ -29,8 +29,14 @@
 
 ## Video Demos
 
-### Backend Unit Tests Demo video(gif)
+### Backend Unit Tests Demo video(golang)
 ![Alt text](screenshots/backend_tests.gif?raw=true "Backend test demo")
+
+### Frontend Unit Tests Demo video(cypress)
+![Alt text](screenshots/frontend_tests.gif?raw=true "Frontend test demo")
+
+### End to end project demo video
+![Alt text](screenshots/endtoend_demo.gif?raw=true "end to end demo")
 
 ## Useful links of the project
 - [Reitz-Union-Hotel-Management Repo Link](https://github.com/Stnagam/Reitz-Union-Hotel-Management) 
