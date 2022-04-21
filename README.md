@@ -37,3 +37,9 @@ Tech Stack: React, GoLang, PostgreSQL
 
 ### Backend Unit Tests Demo video(gif)
 ![Alt text](screenshots/backend_tests.gif?raw=true "Backend test demo")
+
+### Frontend Unit Tests Demo video(cypress)
+![Alt text](screenshots/frontend_tests.gif?raw=true "Frontend test demo")
+
+### End to end project demo video
+![Alt text](screenshots/endtoend_demo.gif?raw=true "end to end demo")
