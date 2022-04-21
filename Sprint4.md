@@ -27,6 +27,11 @@
 - Sai Teja Nagam (21193702)
 - Sheela Rani Ippili (29950862)
 
+## Video Demos
+
+### Backend Unit Tests Demo video(gif)
+![Alt text](screenshots/backend_tests.gif?raw=true "Backend test demo")
+
 ## Useful links of the project
 - [Reitz-Union-Hotel-Management Repo Link](https://github.com/Stnagam/Reitz-Union-Hotel-Management) 
 - [All user stories link](https://github.com/Stnagam/Reitz-Union-Hotel-Management/projects/1)
@@ -168,6 +173,5 @@
 
         {"message": "Mobile Number Has been updated"}
 
-## Backend Demo video(gif)
-![Alt text](screenshots/backend_tests.gif?raw=true "Backend test demo")
+
 
